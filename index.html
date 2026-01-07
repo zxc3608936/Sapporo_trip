@@ -3,613 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 北海道冬日旅程</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <title>My Journey | 專屬行程表</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        :root {
-            --primary: #2c3e50;
-            --bg-color: #f4f7f6;
-            --card-radius: 16px;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-
         body {
-            font-family: 'Noto Sans TC', sans-serif;
-            background-color: var(--bg-color);
-            color: #333;
-            margin: 0;
-            padding-bottom: 60px;
-            -webkit-font-smoothing: antialiased;
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
         }
-
-        /* --- 1. Hero Header (CSS Art) --- */
-        .hero {
-            /* 抽象極光背景 */
-            background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
-            padding: 60px 20px 40px;
-            text-align: center;
-            color: #025373;
-            border-radius: 0 0 30px 30px;
-            box-shadow: 0 4px 20px rgba(132, 250, 176, 0.3);
-            margin-bottom: 20px;
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
         }
-
-        .hero h1 {
-            margin: 0;
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-        
-        .hero p {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            font-weight: 500;
-            margin-top: 5px;
-        }
-
-        /* --- 2. Sticky Countdown --- */
-        .sticky-countdown {
-            position: sticky;
-            top: 0;
-            z-index: 100;
+        .glass-panel {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            margin: 0 20px 30px;
-            padding: 10px;
-            border-radius: 50px;
-            text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        
-        .countdown-label { font-size: 0.8rem; color: #888; }
-        .countdown-time { 
-            font-family: 'Roboto Mono', monospace; 
-            font-weight: 700; 
-            color: #0284c7; 
-            font-size: 1rem;
+        .luxury-gradient {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
         }
-
-        /* --- 3. Layout Container --- */
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 0 16px;
+        .gold-text {
+            color: #d4af37;
         }
-
-        /* --- 4. Card Design (Magazine Style) --- */
-        .day-card {
-            background: white;
-            border-radius: var(--card-radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            border: 1px solid rgba(0,0,0,0.02);
-            position: relative;
-        }
-
-        /* CSS Art Headers (取代圖片) */
-        .card-header-art {
-            height: 120px;
-            position: relative;
-            display: flex;
-            align-items: center;
-            padding: 0 20px;
-        }
-        
-        /* 各城市主題色 */
-        .art-tokyo { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
-        .art-hokkaido { background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%); } /* 冰雪藍 */
-        .art-tour { background: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%); } /* 夢幻紫橘 */
-        .art-osaka { background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%); }
-        .art-home { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); }
-
-        .header-content {
-            position: relative;
-            z-index: 2;
-            color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-        .header-day { font-size: 1.8rem; font-weight: 800; line-height: 1; display: block; }
-        .header-date { font-size: 0.9rem; font-weight: 500; opacity: 0.9; }
-
-        /* Weather Widget (保留雜誌風特色) */
-        .weather-badge {
+        .ticket-notch {
             position: absolute;
-            right: 20px;
-            bottom: -15px; /* 懸浮在交界處 */
-            background: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            font-size: 0.8rem;
-            font-weight: 700;
-            color: #555;
-            display: flex;
-            align-items: center;
-            gap: 5px;
-            z-index: 3;
+            width: 20px;
+            height: 20px;
+            background-color: #f3f4f6; /* Match body bg */
+            border-radius: 50%;
+            top: 50%;
+            transform: translateY(-50%);
         }
-
-        .card-body { padding: 30px 20px 20px; } /* Top padding increased for weather badge */
-
-        /* --- 5. Flight Module (Boarding Pass Style) --- */
-        .flight-pass {
-            border: 1px solid #e2e8f0;
-            border-radius: 12px;
-            background: #f8fafc;
-            padding: 15px;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        /* 虛線裝飾 */
-        .flight-pass::before {
+        .ticket-notch-left { left: -10px; }
+        .ticket-notch-right { right: -10px; }
+        
+        .timeline-line::before {
             content: '';
             position: absolute;
-            left: 0; right: 0; top: 38px;
-            border-top: 1px dashed #cbd5e1;
+            top: 0;
+            bottom: 0;
+            left: 24px;
+            width: 2px;
+            background: #e2e8f0;
+            z-index: 0;
         }
-
-        .fp-header {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            font-size: 0.8rem;
-            color: #64748b;
-        }
-        .fp-code {
-            background: #0ea5e9;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-weight: 700;
-        }
-
-        .fp-route {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .fp-time { font-size: 1.4rem; font-weight: 700; color: #1e293b; font-family: 'Roboto Mono'; line-height: 1; }
-        .fp-city { font-size: 0.8rem; color: #64748b; font-weight: 500; margin-top: 4px; display: block; }
-        .fp-icon { color: #94a3b8; font-size: 1rem; }
-        .text-end { text-align: right; }
-
-        .btn-track {
-            display: block;
-            margin-top: 15px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: #0ea5e9;
-            text-decoration: none;
-            font-weight: 600;
-            border: 1px solid #0ea5e9;
-            padding: 5px;
-            border-radius: 6px;
-            transition: 0.2s;
-        }
-        .btn-track:hover { background: #0ea5e9; color: white; }
-
-        /* --- 6. Activities & Hotel --- */
-        .timeline-item {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 15px;
-            position: relative;
-        }
-        .tl-time {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: #f59e0b; /* Accent color */
-            min-width: 45px;
-            padding-top: 3px;
-        }
-        .tl-content h4 { margin: 0 0 3px 0; font-size: 1rem; color: #333; }
-        .tl-content p { margin: 0; font-size: 0.9rem; color: #666; line-height: 1.5; }
-
-        .hotel-strip {
-            background: #f3e8ff; /* Light purple bg */
-            color: #6b21a8;
-            padding: 12px 15px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 10px;
-        }
-        .h-info { font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
-        .h-nav { 
-            width: 32px; height: 32px; background: white; border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: #6b21a8; text-decoration: none; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        /* --- 7. Voucher Box (Special) --- */
-        .voucher-card {
-            background: #fffbeb;
-            border: 1px solid #fcd34d;
-            border-radius: 12px;
-            padding: 15px;
-            margin-bottom: 20px;
-        }
-        .btn-download {
-            display: block;
-            width: 100%;
-            background: white;
-            border: 1px solid #d97706;
-            color: #d97706;
-            padding: 8px;
-            border-radius: 6px;
-            text-align: center;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin-top: 10px;
-        }
-
     </style>
 </head>
-<body>
+<body class="text-slate-700 antialiased">
 
-    <div class="hero">
-        <h1>2026 冬日冒險</h1>
-        <p>北海道破冰 • 東京 • 大阪</p>
-    </div>
-
-    <div class="sticky-countdown">
-        <span class="countdown-label">距離出發</span>
-        <span id="countdown" class="countdown-time">Loading...</span>
-    </div>
-
-    <div class="container">
-
-        <div class="day-card">
-            <div class="card-header-art art-tokyo">
-                <div class="header-content">
-                    <span class="header-day">Day 1</span>
-                    <span class="header-date">1/16 (五) • 東京集合</span>
-                </div>
-                <div class="weather-badge"><i class="fas fa-sun text-warning" style="color:#f59e0b;"></i> 8°C 晴</div>
+    <header class="luxury-gradient text-white sticky top-0 z-50 shadow-lg">
+        <div class="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fa-solid fa-plane-departure gold-text text-xl"></i>
+                <span class="text-lg font-semibold tracking-wide">TRAVEL LOG</span>
             </div>
+            <nav class="hidden md:block">
+                <ul class="flex space-x-6 text-sm font-light tracking-wider opacity-80">
+                    <li class="hover:text-white cursor-pointer transition">航班資訊</li>
+                    <li class="hover:text-white cursor-pointer transition">每日行程</li>
+                    <li class="hover:text-white cursor-pointer transition">住宿資訊</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-            <div class="card-body">
-                <div class="flight-pass">
-                    <div class="fp-header">
-                        <span class="fp-code">CX6322</span>
-                        <span>旅客 A</span>
-                    </div>
-                    <div class="fp-route">
-                        <div>
-                            <span class="fp-time">10:20</span>
-                            <span class="fp-city">HKG 香港</span>
-                        </div>
-                        <i class="fas fa-plane fp-icon"></i>
-                        <div class="text-end">
-                            <span class="fp-time">15:35</span>
-                            <span class="fp-city">NRT 成田</span>
-                        </div>
-                    </div>
-                    <a href="https://www.flightradar24.com/data/flights/cx6322" target="_blank" class="btn-track">查看動態</a>
-                </div>
-
-                <div class="flight-pass">
-                    <div class="fp-header">
-                        <span class="fp-code">CI104</span>
-                        <span>旅客 B</span>
-                    </div>
-                    <div class="fp-route">
-                        <div>
-                            <span class="fp-time">12:40</span>
-                            <span class="fp-city">TPE 桃園</span>
-                        </div>
-                        <i class="fas fa-plane fp-icon"></i>
-                        <div class="text-end">
-                            <span class="fp-time">16:40</span>
-                            <span class="fp-city">NRT 成田</span>
-                        </div>
-                    </div>
-                    <a href="https://www.flightradar24.com/data/flights/ci104" target="_blank" class="btn-track">查看動態</a>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="tl-time">18:00</div>
-                    <div class="tl-content">
-                        <h4>市區會合</h4>
-                        <p>前往東日本橋飯店 Check-in，晚餐可相約居酒屋。</p>
-                    </div>
-                </div>
-
-                <div class="hotel-strip">
-                    <div class="h-info"><i class="fas fa-bed"></i> Comfort Hotel 東日本橋</div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Tokyo+Higashi+Nihombashi" target="_blank" class="h-nav"><i class="fas fa-location-arrow"></i></a>
-                </div>
+    <div class="relative bg-white h-64 overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1528127269322-53996db866bd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Destination" class="w-full h-full object-cover opacity-90">
+        <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+            <div class="text-center text-white px-4">
+                <p class="text-sm uppercase tracking-[0.2em] mb-2 gold-text">Upcoming Trip</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">探索・旅程</h1>
+                <p class="text-lg font-light opacity-90">2026年1月24日 - 1月29日</p>
             </div>
         </div>
+    </div>
 
-        <div class="day-card">
-            <div class="card-header-art art-hokkaido">
-                <div class="header-content">
-                    <span class="header-day">Day 2</span>
-                    <span class="header-date">1/17 (六) • 飛往北國</span>
-                </div>
-                <div class="weather-badge"><i class="fas fa-snowflake" style="color:#0ea5e9;"></i> -3°C 雪</div>
+    <main class="max-w-4xl mx-auto px-4 py-8 -mt-10 relative z-10 space-y-8">
+
+        <section>
+            <div class="flex items-center justify-between mb-4 px-2">
+                <h2 class="text-2xl font-bold text-slate-800">航班資訊</h2>
+                <span class="text-xs font-medium px-3 py-1 bg-green-100 text-green-700 rounded-full">已確認</span>
             </div>
-
-            <div class="card-body">
-                <div class="flight-pass">
-                    <div class="fp-header">
-                        <span class="fp-code">NH071</span>
-                        <span>兩人同行</span>
-                    </div>
-                    <div class="fp-route">
-                        <div>
-                            <span class="fp-time">16:00</span>
-                            <span class="fp-city">HND 羽田</span>
-                        </div>
-                        <i class="fas fa-plane fp-icon"></i>
-                        <div class="text-end">
-                            <span class="fp-time">17:35</span>
-                            <span class="fp-city">CTS 札幌</span>
-                        </div>
-                    </div>
-                    <a href="https://www.flightradar24.com/data/flights/nh71" target="_blank" class="btn-track">查看動態</a>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="tl-time">PM</div>
-                    <div class="tl-content">
-                        <h4>抵達札幌</h4>
-                        <p>辦理入住，可逛狸小路商店街或大通公園。</p>
-                    </div>
-                </div>
-
-                <div class="hotel-strip">
-                    <div class="h-info"><i class="fas fa-bed"></i> Comfort Hotel 札幌薄野</div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Sapporo+Susukino" target="_blank" class="h-nav"><i class="fas fa-location-arrow"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="card-header-art art-tour">
-                <div class="header-content">
-                    <span class="header-day">Day 3</span>
-                    <span class="header-date">1/18 (日) • 登別小樽</span>
-                </div>
-                <div class="weather-badge"><i class="fas fa-snowflake" style="color:#0ea5e9;"></i> -5°C 雪</div>
-            </div>
-
-            <div class="card-body">
-                <div class="voucher-card">
-                    <h4 style="margin-top:0; color:#b45309;"><i class="fas fa-ticket-alt"></i> Pelago 行程</h4>
-                    <p style="color:#dc2626; font-weight:bold; font-size:0.9rem; margin-bottom:10px;">
-                        <i class="fas fa-clock"></i> 07:30 集合 (Oriental Hotel / 黃色 Gogoday 旗)
-                    </p>
+            
+            <div class="bg-white rounded-xl shadow-md overflow-hidden relative">
+                <div class="p-6 md:p-8 flex flex-col md:flex-row justify-between items-center gap-6 border-b border-dashed border-slate-200 relative">
+                    <div class="ticket-notch ticket-notch-left md:hidden"></div>
+                    <div class="ticket-notch ticket-notch-right md:hidden"></div>
                     
-                    <div class="timeline-item">
-                        <div class="tl-time">AM</div>
-                        <div class="tl-content"><h4>登別地獄谷 & 大湯沼</h4></div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="tl-time">Noon</div>
-                        <div class="tl-content"><h4>洞爺湖 & 昭和新山</h4><p>午餐自理</p></div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="tl-time">PM</div>
-                        <div class="tl-content"><h4>小樽運河 & 音樂盒堂</h4></div>
+                    <div class="flex items-center space-x-4 w-full md:w-auto">
+                        <div class="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center text-white">
+                            <i class="fa-solid fa-plane"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase">Airline</p>
+                            <p class="font-bold text-slate-900">STARLUX</p>
+                            <p class="text-xs font-mono text-slate-500">JX201</p>
+                        </div>
                     </div>
 
-                    <a href="voucher_pelago.pdf" target="_blank" class="btn-download"><i class="fas fa-file-pdf"></i> 開啟憑證</a>
-                </div>
-
-                <div class="hotel-strip">
-                    <div class="h-info"><i class="fas fa-bed"></i> Comfort Hotel 札幌薄野</div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Sapporo+Susukino" target="_blank" class="h-nav"><i class="fas fa-location-arrow"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="card-header-art art-hokkaido">
-                <div class="header-content">
-                    <span class="header-day">Day 4</span>
-                    <span class="header-date">1/19 (一) • 札幌自由行</span>
-                </div>
-                <div class="weather-badge"><i class="fas fa-cloud" style="color:#9ca3af;"></i> -4°C 陰</div>
-            </div>
-
-            <div class="card-body">
-                <div class="timeline-item">
-                    <div class="tl-time">全日</div>
-                    <div class="tl-content">
-                        <h4>城市自由探索</h4>
-                        <p>推薦：北海道神宮、二條市場海鮮丼、JR Tower 夜景。</p>
+                    <div class="flex-1 w-full md:px-12 flex items-center justify-between text-center">
+                        <div>
+                            <div class="text-3xl font-bold text-slate-800">TPE</div>
+                            <div class="text-xs text-slate-500">台北</div>
+                            <div class="text-sm font-medium mt-1">09:30</div>
+                        </div>
+                        <div class="flex-1 px-4 flex flex-col items-center">
+                            <span class="text-xs text-slate-400 mb-1">3h 5m</span>
+                            <div class="w-full h-[2px] bg-slate-200 relative">
+                                <div class="absolute right-0 -top-1 w-2 h-2 rounded-full bg-slate-300"></div>
+                                <div class="absolute left-0 -top-1 w-2 h-2 rounded-full bg-slate-300"></div>
+                                <i class="fa-solid fa-plane absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-slate-800">HAN</div>
+                            <div class="text-xs text-slate-500">河內</div>
+                            <div class="text-sm font-medium mt-1">11:35</div>
+                        </div>
                     </div>
                 </div>
-                <div class="hotel-strip">
-                    <div class="h-info"><i class="fas fa-bed"></i> Comfort Hotel 札幌薄野 (最後一晚)</div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Sapporo+Susukino" target="_blank" class="h-nav"><i class="fas fa-location-arrow"></i></a>
-                </div>
             </div>
-        </div>
+        </section>
 
-        <div class="day-card">
-            <div class="card-header-art art-tour">
-                <div class="header-content">
-                    <span class="header-day">Day 5</span>
-                    <span class="header-date">1/20 (二) • 破冰船遠征 I</span>
-                </div>
-                <div class="weather-badge"><i class="fas fa-snowflake" style="color:#0ea5e9;"></i> -8°C 雪</div>
-            </div>
-
-            <div class="card-body">
-                <div style="background:#fee2e2; color:#ef4444; padding:8px 12px; border-radius:8px; font-size:0.85rem; margin-bottom:15px; font-weight:700;">
-                    <i class="fas fa-suitcase"></i> 07:40 札幌北口集合 (行李限一件)
-                </div>
-
-                <div class="voucher-card">
-                    <h4 style="margin-top:0; color:#b45309;"><i class="fas fa-ticket-alt"></i> KKday 破冰船二日遊</h4>
+        <section>
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 px-2">行程概覽</h2>
+            
+            <div class="space-y-6 relative timeline-line">
+                
+                <div class="relative pl-16">
+                    <div class="absolute left-0 top-0 w-12 text-center">
+                        <span class="block text-sm font-bold text-slate-900">Day 1</span>
+                        <span class="block text-xs text-slate-500">1/24</span>
+                    </div>
+                    <div class="absolute left-[20px] top-2 w-2.5 h-2.5 bg-slate-900 rounded-full ring-4 ring-white z-10"></div>
                     
-                    <div class="timeline-item">
-                        <div class="tl-time">AM</div>
-                        <div class="tl-content"><h4>旭山動物園</h4><p>冬季企鵝散步</p></div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="tl-time">PM</div>
-                        <div class="tl-content"><h4>雪上活動</h4><p>C/D 方案限定</p></div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="tl-time">Night</div>
-                        <div class="tl-content"><h4>層雲峽冰瀑祭</h4><p>夢幻七彩冰雕</p></div>
-                    </div>
-
-                    <a href="voucher_kkday.pdf" target="_blank" class="btn-download"><i class="fas fa-file-pdf"></i> 開啟憑證</a>
-                </div>
-
-                <div class="hotel-strip">
-                    <div class="h-info"><i class="fas fa-hot-tub"></i> 層雲峽溫泉飯店 (行程安排)</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="card-header-art art-hokkaido">
-                <div class="header-content">
-                    <span class="header-day">Day 6</span>
-                    <span class="header-date">1/21 (三) • 破冰船遠征 II</span>
-                </div>
-                <div class="weather-badge"><i class="fas fa-icicles" style="color:#0ea5e9;"></i> -10°C 凍</div>
-            </div>
-
-            <div class="card-body">
-                <div class="timeline-item">
-                    <div class="tl-time">AM</div>
-                    <div class="tl-content"><h4>銀河流星瀑布</h4></div>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-time">Noon</div>
-                    <div class="tl-content">
-                        <h4>紋別破冰船 GARINKO III</h4>
-                        <p style="color:#0ea5e9; font-weight:700;">✨ 旅程高潮：流冰撞擊體驗</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="tl-time">19:00</div>
-                    <div class="tl-content"><h4>抵達札幌車站解散</h4></div>
-                </div>
-
-                <div class="hotel-strip">
-                    <div class="h-info"><i class="fas fa-bed"></i> Sapporo Excel Hotel Tokyu</div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Sapporo+Excel+Hotel+Tokyu" target="_blank" class="h-nav"><i class="fas fa-location-arrow"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="card-header-art art-osaka">
-                <div class="header-content">
-                    <span class="header-day">Day 7</span>
-                    <span class="header-date">1/22 (四) • 轉戰關西</span>
-                </div>
-                <div class="weather-badge"><i class="fas fa-cloud-sun" style="color:#f59e0b;"></i> 9°C 晴</div>
-            </div>
-
-            <div class="card-body">
-                <div class="flight-pass">
-                    <div class="fp-header">
-                        <span class="fp-code">NH1718</span>
-                        <span>移動日</span>
-                    </div>
-                    <div class="fp-route">
-                        <div>
-                            <span class="fp-time">13:30</span>
-                            <span class="fp-city">CTS 札幌</span>
+                    <div class="glass-panel p-5 rounded-lg hover:shadow-lg transition duration-300">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800">抵達與城市探索</h3>
+                                <p class="text-sm text-slate-600 mt-2 leading-relaxed">抵達河內內排機場，專車接送至飯店 Check-in。下午前往還劍湖周邊散步，體驗當地咖啡文化。</p>
+                            </div>
+                            <div class="hidden sm:block">
+                                <i class="fa-solid fa-camera text-slate-200 text-4xl"></i>
+                            </div>
                         </div>
-                        <i class="fas fa-plane fp-icon"></i>
-                        <div class="text-end">
-                            <span class="fp-time">15:55</span>
-                            <span class="fp-city">KIX 關西</span>
+                        <div class="mt-4 flex items-center gap-3 text-xs text-slate-500 font-medium">
+                            <span class="px-2 py-1 bg-slate-100 rounded border border-slate-200"><i class="fa-solid fa-utensils mr-1"></i> 晚餐: Home Hanoi Restaurant</span>
+                            <span class="px-2 py-1 bg-slate-100 rounded border border-slate-200"><i class="fa-solid fa-bed mr-1"></i> Hotel de l'Opera</span>
                         </div>
                     </div>
-                    <a href="https://www.flightradar24.com/data/flights/nh1718" target="_blank" class="btn-track">查看動態</a>
                 </div>
 
-                <div class="timeline-item">
-                    <div class="tl-time">PM</div>
-                    <div class="tl-content"><h4>大阪血拚</h4><p>心齋橋、道頓堀美食。</p></div>
-                </div>
-
-                <div class="hotel-strip">
-                    <div class="h-info"><i class="fas fa-bed"></i> Osaka Hinode Hotel</div>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Osaka+Hinode+Hotel" target="_blank" class="h-nav"><i class="fas fa-location-arrow"></i></a>
-                </div>
-            </div>
-        </div>
-
-        <div class="day-card">
-            <div class="card-header-art art-home">
-                <div class="header-content">
-                    <span class="header-day">Day 8</span>
-                    <span class="header-date">1/23 (五) • 滿載而歸</span>
-                </div>
-                <div class="weather-badge"><i class="fas fa-home" style="color:#666;"></i> 溫暖</div>
-            </div>
-
-            <div class="card-body">
-                <div class="flight-pass">
-                    <div class="fp-header">
-                        <span class="fp-code">CI173</span>
-                        <span>返程</span>
+                <div class="relative pl-16">
+                    <div class="absolute left-0 top-0 w-12 text-center">
+                        <span class="block text-sm font-bold text-slate-900">Day 2</span>
+                        <span class="block text-xs text-slate-500">1/25</span>
                     </div>
-                    <div class="fp-route">
-                        <div>
-                            <span class="fp-time">19:05</span>
-                            <span class="fp-city">KIX 關西</span>
+                    <div class="absolute left-[20px] top-2 w-2.5 h-2.5 bg-amber-500 rounded-full ring-4 ring-white z-10"></div>
+                    
+                    <div class="glass-panel p-5 rounded-lg hover:shadow-lg transition duration-300 border-l-4 border-amber-500">
+                        <div class="flex items-start justify-between">
+                            <div>
+                                <div class="flex items-center mb-1">
+                                    <h3 class="text-lg font-bold text-slate-800 mr-2">下龍灣奢華郵輪</h3>
+                                    <span class="bg-amber-100 text-amber-700 text-[10px] px-2 py-0.5 rounded font-bold uppercase tracking-wide">Highlight</span>
+                                </div>
+                                <p class="text-sm text-slate-600 mt-2 leading-relaxed">前往下龍灣，登上 6星級遊輪。享受迎賓午餐，下午進行獨木舟探險或參觀驚訝洞。</p>
+                            </div>
+                            <div class="hidden sm:block">
+                                <i class="fa-solid fa-ship text-amber-200 text-4xl"></i>
+                            </div>
                         </div>
-                        <i class="fas fa-plane fp-icon"></i>
-                        <div class="text-end">
-                            <span class="fp-time">21:25</span>
-                            <span class="fp-city">TPE 桃園</span>
+                        <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-500">
+                            <img src="https://images.unsplash.com/photo-1559592413-7cec4d0cae2b?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Halong Bay" class="w-12 h-12 rounded object-cover border border-white shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1506158669146-619067005800?ixlib=rb-4.0.3&auto=format&fit=crop&w=100&h=100&q=80" alt="Cruise" class="w-12 h-12 rounded object-cover border border-white shadow-sm">
                         </div>
                     </div>
-                    <a href="https://www.flightradar24.com/data/flights/ci173" target="_blank" class="btn-track">查看動態</a>
                 </div>
+
+                <div class="relative pl-16">
+                    <div class="absolute left-[20px] top-2 w-2.5 h-2.5 bg-slate-300 rounded-full ring-4 ring-white z-10"></div>
+                    <div class="p-4 border-2 border-dashed border-slate-200 rounded-lg text-center text-slate-400 text-sm">
+                        後續行程 (Day 3 - Day 6)
+                    </div>
+                </div>
+
             </div>
-        </div>
+        </section>
 
-    </div>
+        <footer class="mt-12 border-t border-slate-200 pt-8 text-center text-slate-400 text-sm pb-8">
+            <p>&copy; 2026 Travel Itinerary. All rights reserved.</p>
+            <div class="mt-2 space-x-4">
+                <i class="fa-solid fa-cloud-sun"></i> 預報：晴時多雲 18°C - 24°C
+            </div>
+        </footer>
 
-    <script>
-        const targetDate = new Date("January 16, 2026 00:00:00").getTime();
+    </main>
 
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
-
-            if (distance < 0) {
-                document.getElementById("countdown").innerHTML = "✈️ 旅程進行中！";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            document.getElementById("countdown").innerHTML = 
-                `${days}天 ${hours}時 ${minutes}分 ${seconds}秒`;
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    </script>
 </body>
 </html>
