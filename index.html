@@ -227,7 +227,7 @@
         }
         .bp-link:hover { color: #0369a1; }
         
-        /* Voucher Box Styles (New) */
+        /* Voucher Box Styles */
         .voucher-box {
             background: #fffbeb; border: 1px dashed #fbbf24; border-radius: 16px; padding: 20px; margin-bottom: 20px;
         }
@@ -244,6 +244,25 @@
             border-radius: 10px; text-decoration: none; transition: 0.2s; font-size: 0.9rem;
         }
         .btn-download:hover { background: #fff7ed; }
+
+        /* Hotel Card */
+        .hotel-card {
+            margin-top: 15px; background: #f8fafc; border-radius: 16px; padding: 16px;
+            display: flex; align-items: center; justify-content: space-between; border: 1px solid #f1f5f9;
+        }
+        .hotel-left { display: flex; align-items: center; gap: 12px; }
+        .hotel-icon { 
+            width: 36px; height: 36px; background: white; border-radius: 10px;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--lavender); font-size: 1rem; box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .hotel-name { font-weight: 700; font-size: 0.9rem; color: var(--secondary); }
+        .hotel-map-btn {
+            color: #94a3b8; transition: 0.2s; width: 40px; height: 40px; 
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; background: white; border: 1px solid #e2e8f0; text-decoration: none;
+        }
+        .hotel-map-btn:hover { color: var(--ice-blue); border-color: var(--ice-blue); transform: rotate(15deg); }
 
         /* --- 記帳本特定樣式 --- */
         .rate-card {
@@ -365,6 +384,14 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Hotel Card Added -->
+                    <div class="hotel-card">
+                        <div class="hotel-left">
+                            <div class="hotel-icon"><i class="fas fa-bed"></i></div>
+                            <span class="hotel-name">Comfort Hotel 東日本橋</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Tokyo+Higashi+Nihombashi" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
+                    </div>
                 </div>
             </div>
 
@@ -398,6 +425,14 @@
                             <div class="event-content"><h4>狸小路商店街</h4><p>藥妝店補貨，感受北國夜生活。</p></div>
                         </div>
                     </div>
+                    <!-- Hotel Card Added -->
+                    <div class="hotel-card">
+                        <div class="hotel-left">
+                            <div class="hotel-icon"><i class="fas fa-bed"></i></div>
+                            <span class="hotel-name">Comfort Hotel 札幌薄野</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Sapporo+Susukino" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
+                    </div>
                 </div>
             </div>
 
@@ -429,6 +464,14 @@
                             </div>
                         </div>
                         <a href="voucher_pelago.pdf" target="_blank" class="btn-download"><i class="fas fa-file-pdf"></i> 下載憑證</a>
+                    </div>
+                    <!-- Hotel Card Added -->
+                    <div class="hotel-card">
+                        <div class="hotel-left">
+                            <div class="hotel-icon"><i class="fas fa-bed"></i></div>
+                            <span class="hotel-name">Comfort Hotel 札幌薄野</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Sapporo+Susukino" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
                     </div>
                 </div>
             </div>
@@ -462,6 +505,14 @@
                             <div class="event-content"><h4>成吉思汗烤肉</h4><p>晚餐：達摩 (Daruma) 本店。</p></div>
                         </div>
                     </div>
+                    <!-- Hotel Card Added -->
+                    <div class="hotel-card">
+                        <div class="hotel-left">
+                            <div class="hotel-icon"><i class="fas fa-bed"></i></div>
+                            <span class="hotel-name">Comfort Hotel 札幌薄野</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Sapporo+Susukino" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
+                    </div>
                 </div>
             </div>
 
@@ -489,6 +540,14 @@
                         </div>
                         <a href="voucher_kkday.pdf" target="_blank" class="btn-download"><i class="fas fa-file-pdf"></i> 下載憑證</a>
                     </div>
+                    <!-- Hotel Card Added -->
+                    <div class="hotel-card">
+                        <div class="hotel-left">
+                            <div class="hotel-icon"><i class="fas fa-bed"></i></div>
+                            <span class="hotel-name">層雲峽觀光飯店</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Sounkyo+Kanko+Hotel" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
+                    </div>
                 </div>
             </div>
 
@@ -515,6 +574,14 @@
                             <span class="event-time">15:30</span>
                             <div class="event-content"><h4>出塚水產</h4><p>品嘗現炸魚板。</p></div>
                         </div>
+                    </div>
+                    <!-- Hotel Card Added -->
+                    <div class="hotel-card">
+                        <div class="hotel-left">
+                            <div class="hotel-icon"><i class="fas fa-bed"></i></div>
+                            <span class="hotel-name">Sapporo Excel Hotel Tokyu</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Sapporo+Excel+Hotel+Tokyu" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
                     </div>
                 </div>
             </div>
@@ -548,6 +615,14 @@
                             <span class="event-time">22:30</span>
                             <div class="event-content"><h4>大阪市區</h4><p>前往飯店休息。</p></div>
                         </div>
+                    </div>
+                    <!-- Hotel Card Added -->
+                    <div class="hotel-card">
+                        <div class="hotel-left">
+                            <div class="hotel-icon"><i class="fas fa-bed"></i></div>
+                            <span class="hotel-name">Osaka Hinode Hotel</span>
+                        </div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Osaka+Hinode+Hotel" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
                     </div>
                 </div>
             </div>
