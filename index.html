@@ -194,7 +194,9 @@
         .weather-pill { 
             background: white; padding: 4px 10px; border-radius: 14px; font-size: 0.8rem; font-weight: 600; 
             color: var(--secondary); border: 1px solid #e2e8f0; display: flex; align-items: center; gap: 6px;
+            transition: all 0.3s ease;
         }
+        .weather-pill.loading { opacity: 0.6; }
         .card-body { padding: 24px; }
 
         /* Timeline */
@@ -341,7 +343,7 @@
                         <span class="day-num">DAY 01</span>
                         <span class="date-str">1/16 (Fri) • 東京集合</span>
                     </div>
-                    <div class="weather-pill"><i class="fas fa-sun" style="color:#f59e0b;"></i> 3°~11°C</div>
+                    <div class="weather-pill" id="weather-d1"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="boarding-pass">
@@ -384,7 +386,6 @@
                             </div>
                         </div>
                     </div>
-                    <!-- Hotel Card Added -->
                     <div class="hotel-card">
                         <div class="hotel-left">
                             <div class="hotel-icon"><i class="fas fa-bed"></i></div>
@@ -399,7 +400,7 @@
             <div class="day-card" data-theme="hokkaido">
                 <div class="card-header">
                     <div><span class="day-num">DAY 02</span><span class="date-str">1/17 (Sat) • 飛往北國</span></div>
-                    <div class="weather-pill"><i class="far fa-snowflake" style="color:#0ea5e9;"></i> -6°~-1°C</div>
+                    <div class="weather-pill" id="weather-d2"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="boarding-pass">
@@ -425,7 +426,6 @@
                             <div class="event-content"><h4>狸小路商店街</h4><p>藥妝店補貨，感受北國夜生活。</p></div>
                         </div>
                     </div>
-                    <!-- Hotel Card Added -->
                     <div class="hotel-card">
                         <div class="hotel-left">
                             <div class="hotel-icon"><i class="fas fa-bed"></i></div>
@@ -440,7 +440,7 @@
             <div class="day-card" data-theme="tour">
                 <div class="card-header">
                     <div><span class="day-num">DAY 03</span><span class="date-str">1/18 (Sun) • 登別小樽</span></div>
-                    <div class="weather-pill"><i class="far fa-snowflake" style="color:#0ea5e9;"></i> -8°~-2°C</div>
+                    <div class="weather-pill" id="weather-d3"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="voucher-box">
@@ -465,7 +465,6 @@
                         </div>
                         <a href="voucher_pelago.pdf" target="_blank" class="btn-download"><i class="fas fa-file-pdf"></i> 下載憑證</a>
                     </div>
-                    <!-- Hotel Card Added -->
                     <div class="hotel-card">
                         <div class="hotel-left">
                             <div class="hotel-icon"><i class="fas fa-bed"></i></div>
@@ -480,7 +479,7 @@
             <div class="day-card" data-theme="hokkaido">
                 <div class="card-header">
                     <div><span class="day-num">DAY 04</span><span class="date-str">1/19 (Mon) • 札幌探索</span></div>
-                    <div class="weather-pill"><i class="fas fa-cloud" style="color:#94a3b8;"></i> -7°~-1°C</div>
+                    <div class="weather-pill" id="weather-d4"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="timeline">
@@ -505,7 +504,6 @@
                             <div class="event-content"><h4>成吉思汗烤肉</h4><p>晚餐：達摩 (Daruma) 本店。</p></div>
                         </div>
                     </div>
-                    <!-- Hotel Card Added -->
                     <div class="hotel-card">
                         <div class="hotel-left">
                             <div class="hotel-icon"><i class="fas fa-bed"></i></div>
@@ -520,7 +518,7 @@
             <div class="day-card" data-theme="tour">
                 <div class="card-header">
                     <div><span class="day-num">DAY 05</span><span class="date-str">1/20 (Tue) • 破冰遠征</span></div>
-                    <div class="weather-pill"><i class="far fa-snowflake" style="color:#0ea5e9;"></i> -12°~-6°C</div>
+                    <div class="weather-pill" id="weather-d5"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="voucher-box">
@@ -540,7 +538,6 @@
                         </div>
                         <a href="voucher_kkday.pdf" target="_blank" class="btn-download"><i class="fas fa-file-pdf"></i> 下載憑證</a>
                     </div>
-                    <!-- Hotel Card Added -->
                     <div class="hotel-card">
                         <div class="hotel-left">
                             <div class="hotel-icon"><i class="fas fa-bed"></i></div>
@@ -555,7 +552,7 @@
             <div class="day-card" data-theme="hokkaido">
                 <div class="card-header">
                     <div><span class="day-num">DAY 06</span><span class="date-str">1/21 (Wed) • 破冰遠征 II</span></div>
-                    <div class="weather-pill"><i class="fas fa-icicles" style="color:#0ea5e9;"></i> -10°~-4°C</div>
+                    <div class="weather-pill" id="weather-d6"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="timeline">
@@ -575,7 +572,6 @@
                             <div class="event-content"><h4>出塚水產</h4><p>品嘗現炸魚板。</p></div>
                         </div>
                     </div>
-                    <!-- Hotel Card Added -->
                     <div class="hotel-card">
                         <div class="hotel-left">
                             <div class="hotel-icon"><i class="fas fa-bed"></i></div>
@@ -590,7 +586,7 @@
             <div class="day-card" data-theme="osaka">
                 <div class="card-header">
                     <div><span class="day-num">DAY 07</span><span class="date-str">1/22 (Thu) • 轉戰關西</span></div>
-                    <div class="weather-pill"><i class="fas fa-cloud-sun" style="color:#f59e0b;"></i> 5°~12°C</div>
+                    <div class="weather-pill" id="weather-d7"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="boarding-pass">
@@ -616,7 +612,6 @@
                             <div class="event-content"><h4>大阪市區</h4><p>前往飯店休息。</p></div>
                         </div>
                     </div>
-                    <!-- Hotel Card Added -->
                     <div class="hotel-card">
                         <div class="hotel-left">
                             <div class="hotel-icon"><i class="fas fa-bed"></i></div>
@@ -631,7 +626,7 @@
             <div class="day-card" data-theme="osaka">
                 <div class="card-header">
                     <div><span class="day-num">DAY 08</span><span class="date-str">1/23 (Fri) • 滿載而歸</span></div>
-                    <div class="weather-pill"><i class="fas fa-home" style="color:#666;"></i> 6°~13°C</div>
+                    <div class="weather-pill" id="weather-d8"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="timeline">
@@ -679,7 +674,7 @@
                         <div class="rate-display" id="rateVal">0.2200</div>
                     </div>
                     <div style="display:flex; gap:5px;">
-                        <input type="number" id="manualRate" placeholder="自訂" style="width:70px; padding:5px;">
+                        <input type="number" id="manualRate" placeholder="自訂" style="width:70px; padding:5px;" oninput="updateRateDisplay(this.value)">
                         <button onclick="fetchRate()" style="background:var(--ice-light); border:none; width:30px; height:30px; border-radius:50%; cursor:pointer;"><i class="fas fa-sync-alt" style="color:var(--ice-blue)"></i></button>
                     </div>
                 </div>
@@ -799,9 +794,67 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // === Logic: Expense Tracker ===
+        // === Logic: Weather Fetching (Updated Locations + Fallback) ===
+        const weatherLocations = [
+            { id: 'weather-d1', lat: 35.6895, lon: 139.6917, date: '2026-01-16', fallback: {min:3, max:10, code:1} }, // Tokyo
+            { id: 'weather-d2', lat: 43.0618, lon: 141.3545, date: '2026-01-17', fallback: {min:-6, max:-2, code:71} }, // Sapporo
+            { id: 'weather-d3', lat: 43.0618, lon: 141.3545, date: '2026-01-18', fallback: {min:-7, max:-1, code:71} }, // Sapporo
+            { id: 'weather-d4', lat: 43.0618, lon: 141.3545, date: '2026-01-19', fallback: {min:-5, max:-2, code:71} }, // Sapporo
+            { id: 'weather-d5', lat: 43.0618, lon: 141.3545, date: '2026-01-20', fallback: {min:-8, max:-3, code:71} }, // Sapporo
+            { id: 'weather-d6', lat: 44.3566, lon: 143.3533, date: '2026-01-21', fallback: {min:-10, max:-4, code:71} }, // Monbetsu (Updated)
+            { id: 'weather-d7', lat: 34.6937, lon: 135.5023, date: '2026-01-22', fallback: {min:5, max:11, code:1} }, // Osaka
+            { id: 'weather-d8', lat: 34.6937, lon: 135.5023, date: '2026-01-23', fallback: {min:4, max:12, code:3} }  // Osaka
+        ];
+
+        async function fetchWeatherForecast() {
+            for (const loc of weatherLocations) {
+                const el = document.getElementById(loc.id);
+                if (!el) continue;
+
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${loc.lat}&longitude=${loc.lon}&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Asia%2FTokyo&start_date=${loc.date}&end_date=${loc.date}`;
+
+                try {
+                    const res = await fetch(url);
+                    const data = await res.json();
+                    
+                    if (data.daily && data.daily.weathercode && data.daily.weathercode.length > 0) {
+                        updateWeatherUI(el, data.daily.weathercode[0], data.daily.temperature_2m_min[0], data.daily.temperature_2m_max[0]);
+                    } else {
+                        // Fallback if date is out of range (e.g. 2026)
+                        // console.log("Using fallback for " + loc.id);
+                        updateWeatherUI(el, loc.fallback.code, loc.fallback.min, loc.fallback.max);
+                    }
+                } catch (e) {
+                    // Fallback on network error
+                    updateWeatherUI(el, loc.fallback.code, loc.fallback.min, loc.fallback.max);
+                }
+            }
+        }
+
+        function updateWeatherUI(el, code, min, max) {
+            min = Math.round(min);
+            max = Math.round(max);
+            
+            let iconClass = 'fas fa-cloud';
+            let iconColor = '#94a3b8';
+            
+            if (code === 0) { iconClass = 'fas fa-sun'; iconColor = '#f59e0b'; }
+            else if (code >= 1 && code <= 3) { iconClass = 'fas fa-cloud-sun'; iconColor = '#f59e0b'; }
+            else if (code >= 45 && code <= 48) { iconClass = 'fas fa-smog'; iconColor = '#64748b'; }
+            else if (code >= 51 && code <= 67) { iconClass = 'fas fa-cloud-rain'; iconColor = '#3b82f6'; }
+            else if (code >= 71 && code <= 77) { iconClass = 'far fa-snowflake'; iconColor = '#0ea5e9'; }
+            else if (code >= 80 && code <= 82) { iconClass = 'fas fa-cloud-showers-heavy'; iconColor = '#3b82f6'; }
+            else if (code >= 85 && code <= 86) { iconClass = 'far fa-snowflake'; iconColor = '#0ea5e9'; }
+            else if (code >= 95) { iconClass = 'fas fa-bolt'; iconColor = '#eab308'; }
+
+            el.innerHTML = `<i class="${iconClass}" style="color:${iconColor}"></i> ${min}°~${max}°C`;
+            el.classList.remove('loading');
+        }
+
+        // === Logic: Expense Tracker (Fixed Rate Logic) ===
         let expenses = JSON.parse(localStorage.getItem('tripExpensesApp')) || [];
         let currentRate = 0.22;
+        let apiRate = 0.22; // Store API rate separately
         let inputCurrency = 'JPY';
 
         async function fetchRate() {
@@ -811,14 +864,28 @@
                 const res = await fetch('https://api.exchangerate-api.com/v4/latest/JPY');
                 const data = await res.json();
                 if(data && data.rates && data.rates.TWD) {
-                    currentRate = data.rates.TWD;
-                    document.getElementById('rateVal').innerText = currentRate.toFixed(4);
+                    apiRate = data.rates.TWD;
+                    // Only update currentRate if manual input is empty
+                    if (!document.getElementById('manualRate').value) {
+                        currentRate = apiRate;
+                        document.getElementById('rateVal').innerText = currentRate.toFixed(4);
+                    }
                 }
             } catch (e) {
-                const manual = parseFloat(document.getElementById('manualRate').value);
-                if(manual) currentRate = manual;
+                console.log("Rate fetch failed");
             } finally {
                 btn.style.animation = "none";
+            }
+        }
+
+        // Update rate display when typing manually
+        function updateRateDisplay(val) {
+            if (val) {
+                currentRate = parseFloat(val);
+                document.getElementById('rateVal').innerText = currentRate.toFixed(4);
+            } else {
+                currentRate = apiRate;
+                document.getElementById('rateVal').innerText = currentRate.toFixed(4);
             }
         }
 
@@ -834,9 +901,9 @@
             const payer = document.getElementById('payer').value;
             const beneficiary = document.getElementById('beneficiary').value;
             const category = document.getElementById('category').value;
-            const manualRate = parseFloat(document.getElementById('manualRate').value);
-            // 核心邏輯：儲存「當下」的匯率
-            const rateToUse = manualRate ? manualRate : currentRate;
+            
+            // Use the currently displayed rate (which respects manual input)
+            const rateToUse = currentRate;
 
             if (!desc || isNaN(amount)) { alert("請輸入內容！"); return; }
 
@@ -867,11 +934,9 @@
             let totalTWD = 0, paidA = 0, paidB = 0, shareA = 0, shareB = 0;
 
             expenses.forEach(item => {
-                // 使用該筆資料「當時儲存」的匯率來計算，而非 currentRate
                 const amtTWD = item.currency === 'JPY' ? item.amount * item.rate : item.amount;
                 totalTWD += amtTWD;
                 
-                // 冠廷 = A, 浥耘 = B
                 if (item.payer === '冠廷') paidA += amtTWD; else paidB += amtTWD;
                 
                 if (item.beneficiary === 'Shared') { shareA += amtTWD/2; shareB += amtTWD/2; }
@@ -902,17 +967,15 @@
             document.getElementById('paidA').innerText = Math.round(paidA).toLocaleString();
             document.getElementById('paidB').innerText = Math.round(paidB).toLocaleString();
 
-            const diffA = paidA - shareA; // 冠廷 多付的錢
+            const diffA = paidA - shareA;
             const el = document.getElementById('settleResult');
             const absDiff = Math.round(Math.abs(diffA)).toLocaleString();
 
             if(Math.abs(diffA) < 1) {
                 el.innerHTML = `<div style="font-size:1.2rem; color:#10b981"><i class="fas fa-check-circle"></i></div><div style="font-weight:700; color:#10b981">帳務平衡</div>`;
             } else if (diffA > 0) {
-                // 冠廷付比較多，浥耘給冠廷
                 el.innerHTML = `<div style="background:white; color:#1e293b; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">浥</div><div><div style="font-size:0.9rem;">浥耘 需給 冠廷</div><div class="result-amount">NT$${absDiff}</div></div>`;
             } else {
-                // 冠廷付比較少，冠廷給浥耘
                 el.innerHTML = `<div style="background:white; color:#1e293b; width:40px; height:40px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:700;">冠</div><div><div style="font-size:0.9rem;">冠廷 需給 浥耘</div><div class="result-amount">NT$${absDiff}</div></div>`;
             }
         }
@@ -920,6 +983,7 @@
         // Init
         fetchRate();
         renderList();
+        fetchWeatherForecast();
 
     </script>
 </body>
