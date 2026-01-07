@@ -34,8 +34,8 @@
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1548266652-99cf277df5c8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
             background-size: cover;
             background-position: center 30%;
-            height: 50vh;
-            min-height: 400px;
+            height: 40vh;
+            min-height: 350px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -45,14 +45,14 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
             text-shadow: 0 2px 10px rgba(0,0,0,0.5);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: 300;
             background: rgba(255,255,255,0.2);
             padding: 5px 15px;
@@ -69,7 +69,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            padding: 15px 0;
+            padding: 10px 0;
             text-align: center;
             border-bottom: 1px solid #eee;
         }
@@ -77,7 +77,7 @@
             font-family: 'Roboto Mono', monospace;
             font-weight: 700;
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         /* Timeline Layout */
@@ -199,13 +199,14 @@
             margin-bottom: 0;
         }
         
-        /* Highlighted Activity (Pelago/Icebreaker) */
+        /* Highlighted Activity (Pelago/KKday) */
         .highlight-box {
             background-color: var(--tour-bg);
             border: 1px dashed var(--tour-text);
             border-radius: 10px;
             padding: 20px;
             margin: 15px 0;
+            position: relative;
         }
         .highlight-title {
             color: var(--tour-text);
@@ -216,6 +217,25 @@
         }
         .highlight-title i {
             margin-right: 8px;
+        }
+        
+        /* Voucher Button */
+        .btn-voucher {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background: white;
+            border: 2px solid;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: 0.2s;
+        }
+        .btn-voucher:hover {
+            opacity: 0.9;
+            transform: scale(1.02);
         }
 
         /* Module: Hotel */
@@ -441,12 +461,10 @@
                             <p>浪漫的小樽運河漫步，參觀北一硝子館與音樂盒堂。</p>
                         </div>
                     </div>
-                    <div class="activity-item">
-                        <div class="activity-time">晚上</div>
-                        <div class="activity-content">
-                            <h5>返回札幌市區</h5>
-                        </div>
-                    </div>
+
+                    <a href="voucher_pelago.pdf" target="_blank" class="btn-voucher" style="color: #d35400; border-color: #d35400;">
+                        <i class="fas fa-file-pdf"></i> 開啟 Pelago 憑證 (PDF)
+                    </a>
                 </div>
 
                 <div class="hotel-module">
@@ -504,7 +522,7 @@
 
                 <div class="highlight-box" style="background-color: #e8f5e9; border-color: #2e7d32; --tour-text: #2e7d32;">
                     <div class="highlight-title">
-                        <i class="fas fa-bus"></i> 層雲峽破冰船二日遊
+                        <i class="fas fa-bus"></i> KKday 層雲峽破冰船二日遊
                     </div>
                     
                     <div class="d-flex align-items-center mb-3">
@@ -533,6 +551,10 @@
                             <p>欣賞夢幻七彩冰雕與冰之建築。</p>
                         </div>
                     </div>
+
+                    <a href="voucher_kkday.pdf" target="_blank" class="btn-voucher" style="color: #2e7d32; border-color: #2e7d32;">
+                        <i class="fas fa-file-pdf"></i> 開啟 KKday 憑證 (PDF)
+                    </a>
                 </div>
 
                 <div class="hotel-module">
