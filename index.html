@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❄️ 2026 北海道冬日冒險：機票與破冰船行程</title>
+    <title>❄️ 2026 北海道與大阪：冬日極致之旅</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -11,88 +11,145 @@
     <style>
         :root {
             --primary-blue: #0077b6;
+            --dark-blue: #023e8a;
             --ice-blue: #e0f2f7;
             --accent-orange: #f39c12;
+            --hotel-color: #6f42c1;
         }
         body {
             font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
-            background-color: #f0f4f8;
+            background-color: #f4f7f6;
             color: #333;
+            padding-bottom: 50px;
         }
+        /* Header & Countdown */
         .header-banner {
-            background: linear-gradient(rgba(0,119,182,0.8), rgba(0,119,182,0.8)), url('https://images.unsplash.com/photo-1548032885-b5e3270caee5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
+            background: linear-gradient(135deg, #0077b6 0%, #0096c7 100%);
             color: white;
-            padding: 60px 0;
+            padding: 40px 0 30px;
             text-align: center;
-            border-radius: 0 0 20px 20px;
+            margin-bottom: 0;
         }
         .sticky-countdown-wrapper {
             position: sticky;
             top: 0;
-            z-index: 1000;
-            padding: 10px 0;
-            background: rgba(240, 244, 248, 0.95);
+            z-index: 1020;
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(5px);
-        }
-        .countdown-card {
-            background: white;
-            border: 2px solid var(--primary-blue);
-            border-radius: 50px;
-            padding: 10px 30px;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-bottom: 1px solid #ddd;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 10px 0;
         }
         #countdown {
-            font-weight: bold;
+            font-weight: 800;
             color: var(--primary-blue);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
         }
-        .section-card {
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        
+        /* Cards & Layout */
+        .section-title {
+            border-left: 5px solid var(--primary-blue);
+            padding-left: 15px;
+            margin: 40px 0 20px;
+            color: var(--dark-blue);
+            font-weight: 700;
         }
+        .card-custom {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .card-header-custom {
+            background-color: var(--ice-blue);
+            color: var(--dark-blue);
+            font-weight: bold;
+            border-bottom: none;
+            padding: 15px 20px;
+        }
+
+        /* Flight Table */
         .flight-link {
-            background: var(--ice-blue);
-            padding: 5px 10px;
-            border-radius: 5px;
             text-decoration: none;
             color: var(--primary-blue);
             font-weight: bold;
+        }
+        
+        /* Timeline Styles */
+        .timeline-item {
+            padding: 20px;
+            border-left: 3px solid #ddd;
+            position: relative;
+            margin-left: 20px;
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 0 10px 10px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 20px;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            background: var(--primary-blue);
+            border: 3px solid white;
+            box-shadow: 0 0 0 2px var(--primary-blue);
+        }
+        .timeline-date {
+            color: var(--primary-blue);
+            font-weight: 800;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .hotel-badge {
+            background-color: var(--hotel-color);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn-nav {
+            background-color: white;
+            color: var(--hotel-color);
+            border: 1px solid var(--hotel-color);
+            padding: 2px 8px;
+            font-size: 0.8rem;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-left: 5px;
             transition: 0.3s;
         }
-        .flight-link:hover {
-            background: var(--primary-blue);
+        .btn-nav:hover {
+            background-color: var(--hotel-color);
             color: white;
         }
-        .tour-highlight {
-            border-left: 5px solid var(--accent-orange);
-            background: #fff9f0;
-            padding: 20px;
-            margin: 20px 0;
+        
+        /* Specific Activity Styles */
+        .activity-box {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
         }
-        .timeline {
-            border-left: 2px solid var(--primary-blue);
-            padding-left: 20px;
-            margin-left: 10px;
-        }
-        .day-badge {
-            background: var(--primary-blue);
+        .pelago-badge {
+            background-color: #FF5A5F; /* Pelago brandish color */
             color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: bold;
-            display: inline-block;
-            margin-bottom: 10px;
+            font-size: 0.8rem;
+            padding: 2px 6px;
+            border-radius: 4px;
+            vertical-align: middle;
         }
-        .info-label {
+        .highlight-time {
+            color: #d35400;
             font-weight: bold;
-            color: #555;
-            min-width: 80px;
+            min-width: 60px;
             display: inline-block;
         }
     </style>
@@ -101,125 +158,160 @@
 
 <div class="header-banner">
     <h1>❄️ 2026 北海道冬日冒險</h1>
-    <p>2026.01.16 - 2026.02.23 (含破冰船專案行程)</p>
+    <p>東京集合 ➔ 札幌深度遊 ➔ 破冰船遠征 ➔ 大阪購物</p>
 </div>
 
-<div class="container text-center sticky-countdown-wrapper">
-    <div class="countdown-card">
-        <span>⏳ 距離出發還有：</span>
-        <span id="countdown">載入中...</span>
-    </div>
+<div class="container-fluid sticky-countdown-wrapper text-center">
+    <span>⏳ 距離出發還有：</span>
+    <span id="countdown">計算中...</span>
 </div>
 
 <div class="container">
-    <div class="section-card">
-        <h3 class="mb-4"><i class="fas fa-plane-departure me-2"></i>航班動態與動線</h3>
+
+    <h3 class="section-title"><i class="fas fa-bed"></i> 住宿總表與導航</h3>
+    <div class="card card-custom">
         <div class="table-responsive">
-            <table class="table align-middle">
+            <table class="table table-hover mb-0 align-middle">
                 <thead class="table-light">
                     <tr>
                         <th>日期</th>
-                        <th>航班編號</th>
-                        <th>航段</th>
-                        <th>旅客</th>
-                        <th>即時追蹤 (Flightradar24)</th>
+                        <th>城市</th>
+                        <th>飯店名稱</th>
+                        <th>一鍵導航</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>1/16</td>
-                        <td><strong>CX6322</strong></td>
-                        <td>HKG ✈️ HND (羽田)</td>
-                        <td>旅客 A</td>
-                        <td><a href="https://www.flightradar24.com/data/flights/cx6322" target="_blank" class="flight-link">📡 查看動態</a></td>
+                        <td>1/16 (1晚)</td>
+                        <td>東京</td>
+                        <td>Comfort Hotel Tokyo Higashi Nihombashi<br><small class="text-muted">東日本橋</small></td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Tokyo+Higashi+Nihombashi" target="_blank" class="btn btn-sm btn-outline-primary"><i class="fas fa-location-arrow"></i> 導航</a></td>
                     </tr>
                     <tr>
-                        <td>1/16</td>
-                        <td><strong>CI104</strong></td>
-                        <td>TPE ✈️ NRT (成田)</td>
-                        <td>旅客 B</td>
-                        <td><a href="https://www.flightradar24.com/data/flights/ci104" target="_blank" class="flight-link">📡 查看動態</a></td>
+                        <td>1/17 - 1/20 (3晚)</td>
+                        <td>札幌</td>
+                        <td>Comfort Hotel Sapporo Susukino<br><small class="text-muted">薄野</small></td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Sapporo+Susukino" target="_blank" class="btn btn-sm btn-outline-primary"><i class="fas fa-location-arrow"></i> 導航</a></td>
                     </tr>
                     <tr>
-                        <td>1/17</td>
-                        <td><strong>NH071</strong></td>
-                        <td>HND ✈️ CTS (新千歲)</td>
-                        <td>兩人同行</td>
-                        <td><a href="https://www.flightradar24.com/data/flights/nh71" target="_blank" class="flight-link">📡 查看動態</a></td>
+                        <td>1/20 (1晚)</td>
+                        <td>層雲峽</td>
+                        <td>溫泉飯店 (破冰船行程安排)<br><small class="text-muted">大雪/朝陽亭/層雲閣等同級</small></td>
+                        <td><span class="badge bg-secondary">行程安排</span></td>
                     </tr>
                     <tr>
-                        <td>1/22</td>
-                        <td><strong>NH1718</strong></td>
-                        <td>CTS ✈️ KIX (關西)</td>
-                        <td>兩人同行</td>
-                        <td><a href="https://www.flightradar24.com/data/flights/nh1718" target="_blank" class="flight-link">📡 查看動態</a></td>
+                        <td>1/21 (1晚)</td>
+                        <td>札幌</td>
+                        <td>Sapporo Excel Hotel Tokyu<br><small class="text-muted">中島公園附近</small></td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=Sapporo+Excel+Hotel+Tokyu" target="_blank" class="btn btn-sm btn-outline-primary"><i class="fas fa-location-arrow"></i> 導航</a></td>
                     </tr>
                     <tr>
-                        <td>1/23</td>
-                        <td><strong>CI173</strong></td>
-                        <td>KIX ✈️ TPE (桃園)</td>
-                        <td>兩人同行</td>
-                        <td><a href="https://www.flightradar24.com/data/flights/ci173" target="_blank" class="flight-link">📡 查看動態</a></td>
+                        <td>1/22 (1晚)</td>
+                        <td>大阪</td>
+                        <td>Osaka Hinode Hotel<br><small class="text-muted">惠美須町/通天閣附近</small></td>
+                        <td><a href="https://www.google.com/maps/search/?api=1&query=Osaka+Hinode+Hotel" target="_blank" class="btn btn-sm btn-outline-primary"><i class="fas fa-location-arrow"></i> 導航</a></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <div class="section-card">
-        <h3 class="mb-4 text-primary"><i class="fas fa-ship me-2"></i>核心亮點：流冰破冰船 & 層雲峽 2 日遊</h3>
-        
-        <div class="tour-highlight">
-            <h5><i class="fas fa-info-circle me-2"></i>集合資訊 (1/20)</h5>
-            <p class="mb-1"><span class="info-label">時間：</span>07:40 集合 / 08:00 正式出發</p>
-            <p class="mb-1"><span class="info-label">地點：</span>JR 札幌車站北口出口團體巴士乘車處</p>
-            <p class="mb-0 text-danger font-weight-bold"><i class="fas fa-exclamation-triangle me-1"></i>每人限帶一件大型行李，如需多帶請務必提前告知！</p>
-        </div>
+    <h3 class="section-title"><i class="fas fa-calendar-alt"></i> 每日行程詳細動線</h3>
 
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="day-badge">Day 1 (1/20) 旭山動物園與冰瀑祭</div>
-                <div class="timeline">
-                    <p><strong>08:00</strong> 札幌出發</p>
-                    <p><strong>旭山動物園</strong> (100min) - 必看企鵝散步、圓柱海豹水道。</p>
-                    <p><strong>午餐：</strong>焗烤螃蟹海鮮陶板燒御膳</p>
-                    <p><strong>雪上活動：</strong>雪上摩托車、橡皮艇 & 羊駝牧場 (C/D方案限定)</p>
-                    <p><strong>層雲峽冰瀑祭</strong> - 夜晚觀賞七彩冰之建築</p>
-                    <p><strong>入住：</strong>層雲峽溫泉飯店（享用百匯自助餐/宴會餐）</p>
-                </div>
-            </div>
-            <div class="col-md-6 mb-4">
-                <div class="day-badge">Day 2 (1/21) 破冰船與流星瀑布</div>
-                <div class="timeline">
-                    <p><strong>飯店早餐</strong>後啟程</p>
-                    <p><strong>銀河流星瀑布</strong> - 日本瀑布百選之男瀧與女瀧</p>
-                    <p><strong>紋別破冰船 GARINKO III</strong> - 體驗鑿碎流冰的震撼感 (1小時)</p>
-                    <p><strong>午餐：</strong>豪華蟹腳干貝端爐燒套餐</p>
-                    <p><strong>旭川男山酒造</strong> - 300年歷史酒造，參觀 SAKE PARK</p>
-                    <p><strong>18:00-19:00</strong> 抵達札幌車站解散</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section-card">
-        <h3><i class="fas fa-calendar-alt me-2"></i>全程概覽</h3>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"><strong>1/16：</strong> 飛往東京 (羽田/成田)，市區會師。</li>
-            <li class="list-group-item"><strong>1/17 - 1/19：</strong> 抵達北海道，札幌、小樽市區觀光。</li>
-            <li class="list-group-item bg-light"><strong>1/20 - 1/21：</strong> 破冰船 2 日遊 (專案行程)。</li>
-            <li class="list-group-item"><strong>1/22：</strong> 札幌飛往關西，大阪最後血拚。</li>
-            <li class="list-group-item"><strong>1/23：</strong> 大阪搭乘 CI173 返回桃園。</li>
+    <div class="timeline-item">
+        <span class="timeline-date">1/16 (五) 東京集合</span>
+        <p><strong>航班動態：</strong></p>
+        <ul class="mb-2">
+            <li>👤 旅客A (CX6322): 香港 ✈️ 羽田 <a href="https://www.flightradar24.com/data/flights/cx6322" target="_blank" class="flight-link"><i class="fas fa-satellite-dish"></i></a></li>
+            <li>👤 旅客B (CI104): 桃園 ✈️ 成田 <a href="https://www.flightradar24.com/data/flights/ci104" target="_blank" class="flight-link"><i class="fas fa-satellite-dish"></i></a></li>
         </ul>
+        <div class="hotel-badge"><i class="fas fa-hotel"></i> 住：Comfort Hotel Tokyo Higashi Nihombashi</div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Tokyo+Higashi+Nihombashi" target="_blank" class="btn-nav">導航</a>
     </div>
 
-    <footer class="text-center text-muted py-4">
-        <p>&copy; 2026 北海道旅遊企劃 | 願流冰之行順利 ❄️</p>
+    <div class="timeline-item">
+        <span class="timeline-date">1/17 (六) 前進北海道</span>
+        <p><strong>航班：</strong> NH071 羽田 ✈️ 札幌(CTS) <a href="https://www.flightradar24.com/data/flights/nh71" target="_blank" class="flight-link"><i class="fas fa-satellite-dish"></i></a></p>
+        <p>抵達後前往札幌市區，辦理入住。</p>
+        <div class="hotel-badge"><i class="fas fa-hotel"></i> 住：Comfort Hotel Sapporo Susukino</div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Comfort+Hotel+Sapporo+Susukino" target="_blank" class="btn-nav">導航</a>
+    </div>
+
+    <div class="timeline-item" style="border-left-color: #f39c12;">
+        <span class="timeline-date">1/18 (日) 登別、洞爺湖與小樽一日遊 <span class="pelago-badge">Pelago 行程</span></span>
+        
+        <div class="activity-box border-warning">
+            <h5 class="text-danger"><i class="fas fa-flag"></i> 集合資訊</h5>
+            <p class="mb-1"><strong>時間：</strong> 07:30 AM (請勿遲到)</p>
+            <p class="mb-1"><strong>地點：</strong> Oriental Hotel Sapporo (札幌東方飯店)</p>
+            <p class="mb-1"><strong>識別：</strong> 請尋找黃色的 <strong>"Gogoday"</strong> 旗幟</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Oriental+Hotel+Sapporo" target="_blank" class="btn btn-primary btn-sm mt-2"><i class="fas fa-map-marker-alt"></i> 導航至集合點</a>
+        </div>
+
+        <div class="mt-3">
+            <p><span class="highlight-time">上午</span> <strong>登別地獄谷 (Jigokudani) & 大湯沼 (Oyunuma)</strong><br>觀賞火山地熱奇景，硫磺氣體噴發與沸騰的溫泉池。</p>
+            <p><span class="highlight-time">中午</span> <strong>洞爺湖 (Lake Toya) & 昭和新山</strong><br>午餐自理 (2小時自由時間)。可欣賞火山口湖景與仍有地熱冒煙的昭和新山。 *可選行程：昭和新山熊牧場 (門票自理)。</p>
+            <p><span class="highlight-time">下午</span> <strong>小樽運河 & 堺町通</strong><br>漫步浪漫的小樽運河。參觀北一硝子館 (玻璃工坊) 與小樽音樂盒堂 (Music Box Museum)。</p>
+            <p><span class="highlight-time">晚上</span> <strong>返回札幌</strong><br>結束充實的一天，巴士送回札幌市區。</p>
+        </div>
+        
+        <div class="hotel-badge"><i class="fas fa-hotel"></i> 住：Comfort Hotel Sapporo Susukino</div>
+    </div>
+
+    <div class="timeline-item">
+        <span class="timeline-date">1/19 (一) 札幌市區自由行</span>
+        <p>全日自由活動。建議：大通公園、北海道神宮、或狸小路商店街補貨。</p>
+        <div class="hotel-badge"><i class="fas fa-hotel"></i> 住：Comfort Hotel Sapporo Susukino</div>
+    </div>
+
+    <div class="timeline-item" style="border-left-color: #28a745;">
+        <span class="timeline-date">1/20 (二) 破冰船二日遊 (Day 1)</span>
+        <div class="alert alert-warning">
+            <strong>⚠️ 換飯店提醒：</strong> 今日需退房 (Comfort Susukino)。請攜帶輕便行李參加行程，大型行李建議寄放或確認巴士規定(每人限一件)。
+        </div>
+        <div class="activity-box">
+            <p><strong>07:40 集合：</strong> JR 札幌車站北口團體巴士處</p>
+            <p><strong>上午：</strong> 旭山動物園 (企鵝散步)</p>
+            <p><strong>下午：</strong> 雪上活動 (C/D方案限定) / 自由活動</p>
+            <p><strong>晚上：</strong> 層雲峽冰瀑祭 (七彩冰雕)</p>
+        </div>
+        <div class="hotel-badge" style="background-color: #28a745;"><i class="fas fa-hot-tub"></i> 住：層雲峽溫泉飯店</div>
+    </div>
+
+    <div class="timeline-item" style="border-left-color: #28a745;">
+        <span class="timeline-date">1/21 (三) 破冰船二日遊 (Day 2)</span>
+        <div class="activity-box">
+            <p><strong>上午：</strong> 銀河流星瀑布</p>
+            <p><strong>重頭戲：</strong> 紋別破冰船 GARINKO III 號 (流冰巡航)</p>
+            <p><strong>下午：</strong> 旭川男山酒造</p>
+            <p><strong>18:00-19:00：</strong> 抵達札幌車站解散</p>
+        </div>
+        <p class="mt-2">行程結束後，自行前往今晚下榻飯店。</p>
+        <div class="hotel-badge"><i class="fas fa-hotel"></i> 住：Sapporo Excel Hotel Tokyu</div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Sapporo+Excel+Hotel+Tokyu" target="_blank" class="btn-nav">導航</a>
+    </div>
+
+    <div class="timeline-item">
+        <span class="timeline-date">1/22 (四) 轉場大阪</span>
+        <p><strong>航班：</strong> NH1718 札幌(CTS) ✈️ 大阪(KIX) <a href="https://www.flightradar24.com/data/flights/nh1718" target="_blank" class="flight-link"><i class="fas fa-satellite-dish"></i></a></p>
+        <p>抵達關西，享受大阪最後一晚 (心齋橋/道頓堀)。</p>
+        <div class="hotel-badge"><i class="fas fa-hotel"></i> 住：Osaka Hinode Hotel</div>
+        <a href="https://www.google.com/maps/search/?api=1&query=Osaka+Hinode+Hotel" target="_blank" class="btn-nav">導航</a>
+    </div>
+
+    <div class="timeline-item">
+        <span class="timeline-date">1/23 (五) 平安返家</span>
+        <p><strong>航班：</strong> CI173 大阪(KIX) ✈️ 桃園(TPE) <a href="https://www.flightradar24.com/data/flights/ci173" target="_blank" class="flight-link"><i class="fas fa-satellite-dish"></i></a></p>
+        <p>整理戰利品，前往機場。</p>
+    </div>
+
+    <footer class="text-center text-muted mt-5 mb-3">
+        <small>&copy; 2026 北海道與大阪冬日之旅</small>
     </footer>
+
 </div>
 
 <script>
-    // 設置目標日期：2026/01/16 00:00:00
     const targetDate = new Date("January 16, 2026 00:00:00").getTime();
 
     function updateCountdown() {
@@ -227,7 +319,7 @@
         const distance = targetDate - now;
 
         if (distance < 0) {
-            document.getElementById("countdown").innerHTML = "✈️ 冒險已經展開！";
+            document.getElementById("countdown").innerHTML = "✈️ 旅程進行中！";
             return;
         }
 
