@@ -3,309 +3,246 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>❄️ 2026 北海道冬日冒險：機票與行程總覽</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>❄️ 2026 北海道冬日冒險：機票與破冰船行程</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
+        :root {
+            --primary-blue: #0077b6;
+            --ice-blue: #e0f2f7;
+            --accent-orange: #f39c12;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+            background-color: #f0f4f8;
             color: #333;
-            line-height: 1.6;
         }
-        .container {
-            max-width: 960px;
-            margin-top: 30px;
-            margin-bottom: 50px;
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-        .header-section {
-            background-color: #0077b6;
+        .header-banner {
+            background: linear-gradient(rgba(0,119,182,0.8), rgba(0,119,182,0.8)), url('https://images.unsplash.com/photo-1548032885-b5e3270caee5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 25px 0;
-            margin-bottom: 30px;
-            border-radius: 12px 12px 0 0;
+            padding: 60px 0;
             text-align: center;
+            border-radius: 0 0 20px 20px;
         }
-        .header-section h1 {
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        .countdown-box {
-            background: #e0f2f7;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #b3e5fc;
-            margin-bottom: 30px;
-        }
-        .countdown-box h3 {
-            color: #005680;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-        #countdown {
-            font-size: 2.2em;
-            font-weight: bold;
-            color: #0077b6;
-            letter-spacing: 1px;
-        }
-        .section-title {
-            color: #005680;
-            border-bottom: 3px solid #0077b6;
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            font-weight: 600;
-            font-size: 1.8em;
-        }
-        .table-responsive {
-            margin-top: 20px;
-            margin-bottom: 30px;
-        }
-        .flight-table th, .flight-table td {
-            vertical-align: middle;
-            text-align: center;
-        }
-        .flight-table th {
-            background-color: #e9ecef;
-            color: #495057;
-        }
-        .flight-table td a {
-            color: #0077b6;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .flight-table td a:hover {
-            text-decoration: underline;
-            color: #005680;
-        }
-        .itinerary-list {
-            list-style: none;
-            padding-left: 0;
-        }
-        .itinerary-list li {
-            background-color: #f8f9fa;
-            border: 1px solid #dee2e6;
-            margin-bottom: 10px;
-            padding: 15px 20px;
-            border-radius: 5px;
-            position: relative;
-            padding-left: 40px;
-        }
-        .itinerary-list li::before {
-            content: "\f058"; /* Check-circle icon */
-            font-family: "Font Awesome 5 Free";
-            font-weight: 900;
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #28a745;
-        }
-        .footer-note {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #eee;
-            color: #6c757d;
-            font-size: 0.9em;
-            text-align: center;
-        }
-        /* Sticky header for countdown */
         .sticky-countdown-wrapper {
             position: sticky;
             top: 0;
-            z-index: 1020; /* Above regular content, below navbars */
-            background-color: #f4f7f6; /* Match body background */
-            padding-top: 15px;
-            padding-bottom: 15px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            margin-bottom: 30px; /* Space below the sticky box */
+            z-index: 1000;
+            padding: 10px 0;
+            background: rgba(240, 244, 248, 0.95);
+            backdrop-filter: blur(5px);
         }
-        .sticky-countdown-box {
-            max-width: 960px;
-            margin: 0 auto;
-            background: #e0f2f7;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            border: 1px solid #b3e5fc;
+        .countdown-card {
+            background: white;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            padding: 10px 30px;
+            display: inline-block;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
-        .sticky-countdown-box h3 {
-            margin: 0 0 5px 0;
-            color: #005680;
-            font-weight: 600;
-            font-size: 1.1em; /* Smaller for sticky */
+        #countdown {
+            font-weight: bold;
+            color: var(--primary-blue);
+            font-size: 1.2rem;
         }
-        .sticky-countdown-box #countdown {
-            font-size: 1.8em; /* Smaller for sticky */
+        .section-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
-
-        /* Responsive table for smaller screens */
-        @media (max-width: 768px) {
-            .flight-table thead {
-                display: none;
-            }
-            .flight-table tr {
-                display: block;
-                margin-bottom: 15px;
-                border: 1px solid #dee2e6;
-                border-radius: 8px;
-                padding: 10px;
-            }
-            .flight-table td {
-                display: block;
-                text-align: left;
-                padding-left: 100px;
-                position: relative;
-            }
-            .flight-table td::before {
-                content: attr(data-label);
-                position: absolute;
-                left: 10px;
-                width: 90px;
-                padding-right: 10px;
-                white-space: nowrap;
-                font-weight: bold;
-                color: #005680;
-            }
+        .flight-link {
+            background: var(--ice-blue);
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .flight-link:hover {
+            background: var(--primary-blue);
+            color: white;
+        }
+        .tour-highlight {
+            border-left: 5px solid var(--accent-orange);
+            background: #fff9f0;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .timeline {
+            border-left: 2px solid var(--primary-blue);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+        .day-badge {
+            background: var(--primary-blue);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .info-label {
+            font-weight: bold;
+            color: #555;
+            min-width: 80px;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
 
-    <div class="sticky-countdown-wrapper">
-        <div class="sticky-countdown-box">
-            <h3>⏳ 距離旅程啟航還有</h3>
-            <p id="countdown" style="font-size: 24px; font-weight: bold; color: #0077b6;">計算中...</p>
+<div class="header-banner">
+    <h1>❄️ 2026 北海道冬日冒險</h1>
+    <p>2026.01.16 - 2026.02.23 (含破冰船專案行程)</p>
+</div>
+
+<div class="container text-center sticky-countdown-wrapper">
+    <div class="countdown-card">
+        <span>⏳ 距離出發還有：</span>
+        <span id="countdown">載入中...</span>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-card">
+        <h3 class="mb-4"><i class="fas fa-plane-departure me-2"></i>航班動態與動線</h3>
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>日期</th>
+                        <th>航班編號</th>
+                        <th>航段</th>
+                        <th>旅客</th>
+                        <th>即時追蹤 (Flightradar24)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1/16</td>
+                        <td><strong>CX6322</strong></td>
+                        <td>HKG ✈️ HND (羽田)</td>
+                        <td>旅客 A</td>
+                        <td><a href="https://www.flightradar24.com/data/flights/cx6322" target="_blank" class="flight-link">📡 查看動態</a></td>
+                    </tr>
+                    <tr>
+                        <td>1/16</td>
+                        <td><strong>CI104</strong></td>
+                        <td>TPE ✈️ NRT (成田)</td>
+                        <td>旅客 B</td>
+                        <td><a href="https://www.flightradar24.com/data/flights/ci104" target="_blank" class="flight-link">📡 查看動態</a></td>
+                    </tr>
+                    <tr>
+                        <td>1/17</td>
+                        <td><strong>NH071</strong></td>
+                        <td>HND ✈️ CTS (新千歲)</td>
+                        <td>兩人同行</td>
+                        <td><a href="https://www.flightradar24.com/data/flights/nh71" target="_blank" class="flight-link">📡 查看動態</a></td>
+                    </tr>
+                    <tr>
+                        <td>1/22</td>
+                        <td><strong>NH1718</strong></td>
+                        <td>CTS ✈️ KIX (關西)</td>
+                        <td>兩人同行</td>
+                        <td><a href="https://www.flightradar24.com/data/flights/nh1718" target="_blank" class="flight-link">📡 查看動態</a></td>
+                    </tr>
+                    <tr>
+                        <td>1/23</td>
+                        <td><strong>CI173</strong></td>
+                        <td>KIX ✈️ TPE (桃園)</td>
+                        <td>兩人同行</td>
+                        <td><a href="https://www.flightradar24.com/data/flights/ci173" target="_blank" class="flight-link">📡 查看動態</a></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
-    <div class="container">
-        <div class="header-section">
-            <h1 class="display-4">❄️ 2026 北海道冬日冒險</h1>
-            <p class="lead">機票與行程總覽</p>
+    <div class="section-card">
+        <h3 class="mb-4 text-primary"><i class="fas fa-ship me-2"></i>核心亮點：流冰破冰船 & 層雲峽 2 日遊</h3>
+        
+        <div class="tour-highlight">
+            <h5><i class="fas fa-info-circle me-2"></i>集合資訊 (1/20)</h5>
+            <p class="mb-1"><span class="info-label">時間：</span>07:40 集合 / 08:00 正式出發</p>
+            <p class="mb-1"><span class="info-label">地點：</span>JR 札幌車站北口出口團體巴士乘車處</p>
+            <p class="mb-0 text-danger font-weight-bold"><i class="fas fa-exclamation-triangle me-1"></i>每人限帶一件大型行李，如需多帶請務必提前告知！</p>
         </div>
 
-        <section id="flights">
-            <h2 class="section-title"><i class="fas fa-plane"></i> 航班任務：雙路並進，東京會師</h2>
-            <p>這次旅行採取「分頭出發、同進同出」的精彩策略。你可以點擊下方連結直接在 <strong>Flightradar24</strong> 上查看即時飛行動態。</p>
-
-            <div class="table-responsive">
-                <table class="table table-hover table-striped flight-table">
-                    <thead>
-                        <tr>
-                            <th>日期</th>
-                            <th>航班編號</th>
-                            <th>航程</th>
-                            <th>旅客</th>
-                            <th>查看動態</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td data-label="日期"><strong>1/16</strong></td>
-                            <td data-label="航班編號"><strong>CX6322</strong></td>
-                            <td data-label="航程">香港(HKG) ✈️ 東京(HND)</td>
-                            <td data-label="旅客">旅客 A</td>
-                            <td data-label="查看動態"><a href="https://www.flightradar24.com/data/flights/cx6322" target="_blank"><i class="fas fa-satellite-dish"></i> 即時追蹤</a></td>
-                        </tr>
-                        <tr>
-                            <td data-label="日期"><strong>1/16</strong></td>
-                            <td data-label="航班編號"><strong>CI104</strong></td>
-                            <td data-label="航程">桃園(TPE) ✈️ 東京(NRT)</td>
-                            <td data-label="旅客">旅客 B</td>
-                            <td data-label="查看動態"><a href="https://www.flightradar24.com/data/flights/ci104" target="_blank"><i class="fas fa-satellite-dish"></i> 即時追蹤</a></td>
-                        </tr>
-                        <tr>
-                            <td data-label="日期"><strong>1/17</strong></td>
-                            <td data-label="航班編號"><strong>NH071</strong></td>
-                            <td data-label="航程">東京(HND) ✈️ 札幌(CTS)</td>
-                            <td data-label="旅客">兩人同行</td>
-                            <td data-label="查看動態"><a href="https://www.flightradar24.com/data/flights/nh71" target="_blank"><i class="fas fa-satellite-dish"></i> 即時追蹤</a></td>
-                        </tr>
-                        <tr>
-                            <td data-label="日期"><strong>1/22</strong></td>
-                            <td data-label="航班編號"><strong>NH1718</strong></td>
-                            <td data-label="航程">札幌(CTS) ✈️ 大阪(KIX)</td>
-                            <td data-label="旅客">兩人同行</td>
-                            <td data-label="查看動態"><a href="https://www.flightradar24.com/data/flights/nh1718" target="_blank"><i class="fas fa-satellite-dish"></i> 即時追蹤</a></td>
-                        </tr>
-                        <tr>
-                            <td data-label="日期"><strong>1/23</strong></td>
-                            <td data-label="航班編號"><strong>CI173</strong></td>
-                            <td data-label="航程">大阪(KIX) ✈️ 桃園(TPE)</td>
-                            <td data-label="旅客">兩人同行</td>
-                            <td data-label="查看動態"><a href="https://www.flightradar24.com/data/flights/ci173" target="_blank"><i class="fas fa-satellite-dish"></i> 即時追蹤</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="day-badge">Day 1 (1/20) 旭山動物園與冰瀑祭</div>
+                <div class="timeline">
+                    <p><strong>08:00</strong> 札幌出發</p>
+                    <p><strong>旭山動物園</strong> (100min) - 必看企鵝散步、圓柱海豹水道。</p>
+                    <p><strong>午餐：</strong>焗烤螃蟹海鮮陶板燒御膳</p>
+                    <p><strong>雪上活動：</strong>雪上摩托車、橡皮艇 & 羊駝牧場 (C/D方案限定)</p>
+                    <p><strong>層雲峽冰瀑祭</strong> - 夜晚觀賞七彩冰之建築</p>
+                    <p><strong>入住：</strong>層雲峽溫泉飯店（享用百匯自助餐/宴會餐）</p>
+                </div>
             </div>
-        </section>
-
-        <section id="itinerary">
-            <h2 class="section-title"><i class="fas fa-map-marked-alt"></i> 行程精華路徑</h2>
-            <ul class="itinerary-list">
-                <li>
-                    <strong>1/16：東京集結</strong>
-                    <br>各自抵達東京，建議入住品川或羽田機場附近飯店，方便隔日早班機。
-                </li>
-                <li>
-                    <strong>1/17 - 1/21：北海道極致體驗</strong>
-                    <br>搭乘 NH071 飛抵札幌。<strong>重點推薦：</strong> 小樽運河雪景、大通公園冰雕、以及定山溪溫泉泡湯。
-                </li>
-                <li>
-                    <strong>1/22：關西轉場</strong>
-                    <br>從新千歲機場飛往關西，享受大阪最後一晚的道頓堀美食與血拚。
-                </li>
-                <li>
-                    <strong>1/23：平安返家</strong>
-                    <br>帶著滿滿回憶搭乘 CI173 回到台灣。
-                </li>
-            </ul>
-        </section>
-
-        <footer class="footer-note">
-            <p>&copy; 2026 北海道冬日冒險。祝您旅途愉快！</p>
-        </footer>
+            <div class="col-md-6 mb-4">
+                <div class="day-badge">Day 2 (1/21) 破冰船與流星瀑布</div>
+                <div class="timeline">
+                    <p><strong>飯店早餐</strong>後啟程</p>
+                    <p><strong>銀河流星瀑布</strong> - 日本瀑布百選之男瀧與女瀧</p>
+                    <p><strong>紋別破冰船 GARINKO III</strong> - 體驗鑿碎流冰的震撼感 (1小時)</p>
+                    <p><strong>午餐：</strong>豪華蟹腳干貝端爐燒套餐</p>
+                    <p><strong>旭川男山酒造</strong> - 300年歷史酒造，參觀 SAKE PARK</p>
+                    <p><strong>18:00-19:00</strong> 抵達札幌車站解散</p>
+                </div>
+            </div>
+        </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <div class="section-card">
+        <h3><i class="fas fa-calendar-alt me-2"></i>全程概覽</h3>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>1/16：</strong> 飛往東京 (羽田/成田)，市區會師。</li>
+            <li class="list-group-item"><strong>1/17 - 1/19：</strong> 抵達北海道，札幌、小樽市區觀光。</li>
+            <li class="list-group-item bg-light"><strong>1/20 - 1/21：</strong> 破冰船 2 日遊 (專案行程)。</li>
+            <li class="list-group-item"><strong>1/22：</strong> 札幌飛往關西，大阪最後血拚。</li>
+            <li class="list-group-item"><strong>1/23：</strong> 大阪搭乘 CI173 返回桃園。</li>
+        </ul>
+    </div>
 
-    <script>
-        const targetDate = new Date("January 16, 2026 00:00:00").getTime();
+    <footer class="text-center text-muted py-4">
+        <p>&copy; 2026 北海道旅遊企劃 | 願流冰之行順利 ❄️</p>
+    </footer>
+</div>
 
-        const timer = setInterval(function() {
-            const now = new Date().getTime();
-            const distance = targetDate - now;
+<script>
+    // 設置目標日期：2026/01/16 00:00:00
+    const targetDate = new Date("January 16, 2026 00:00:00").getTime();
 
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
 
-            // Update both countdown elements (if needed, though sticky should be enough)
-            document.getElementById("countdown").innerHTML = 
-                days + "天 " + hours + "時 " + minutes + "分 " + seconds + "秒 ";
+        if (distance < 0) {
+            document.getElementById("countdown").innerHTML = "✈️ 冒險已經展開！";
+            return;
+        }
 
-            if (distance < 0) {
-                clearInterval(timer);
-                document.getElementById("countdown").innerHTML = "旅程已展開！享受你的旅程！";
-            }
-        }, 1000);
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-        // Optional: Smooth scroll for internal links if you add them later
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
+        document.getElementById("countdown").innerHTML = 
+            `${days}天 ${hours}時 ${minutes}分 ${seconds}秒`;
+    }
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-    </script>
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+</script>
+
 </body>
 </html>
