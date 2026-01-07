@@ -104,50 +104,65 @@
         /* --- Hero Section --- */
         .hero-section {
             position: relative;
-            height: 320px;
+            height: 360px; /* 稍微加高 */
             color: white;
             border-radius: 0 0 40px 40px;
             overflow: hidden;
             text-align: center;
-            box-shadow: var(--shadow-soft);
-            margin-bottom: 40px;
+            box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3); /* 加強陰影 */
+            margin: 0 auto 40px; /* 置中並保持底部間距 */
+            max-width: 800px; /* 限制最大寬度，防止圖片在大螢幕模糊 */
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            background: linear-gradient(135deg, #0f172a 0%, #334155 100%); /* Fallback */
+            background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
+        }
+        
+        /* 增加黑色漸層遮罩，讓文字更清楚 */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.6) 100%);
+            z-index: 1;
         }
         
         .hero-bg-img {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; z-index: 0;
-            filter: brightness(0.7);
+            /* 移除 brightness 濾鏡，改用遮罩，圖片會更銳利 */
         }
         
-        .hero-content { position: relative; z-index: 1; text-shadow: 0 4px 10px rgba(0,0,0,0.5); }
+        .hero-content { 
+            position: relative; 
+            z-index: 2; 
+            text-shadow: 0 4px 20px rgba(0,0,0,0.9); /* 加強文字陰影 */
+            padding: 20px;
+        }
 
         .main-title {
             font-family: var(--font-eng);
             font-weight: 800;
-            font-size: 2.6rem;
+            font-size: 2.8rem;
             margin: 0;
             letter-spacing: -1px;
-            background: linear-gradient(to bottom, #ffffff, #e2e8f0);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: #ffffff; /* 改回純白，確保陰影有效 */
+            /* 移除背景裁切，提升清晰度 */
         }
 
         .sub-title {
             font-family: var(--font-code);
-            font-size: 0.95rem;
+            font-size: 1rem;
             color: white;
-            margin-top: 10px;
-            background: rgba(255,255,255,0.2);
-            backdrop-filter: blur(5px);
+            margin-top: 12px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
             display: inline-block;
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: 30px;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid rgba(255,255,255,0.4);
+            font-weight: 600;
         }
 
         .container {
