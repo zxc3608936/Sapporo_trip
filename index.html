@@ -104,14 +104,14 @@
         /* --- Hero Section --- */
         .hero-section {
             position: relative;
-            height: 360px; /* 稍微加高 */
+            height: 360px;
             color: white;
             border-radius: 0 0 40px 40px;
             overflow: hidden;
             text-align: center;
-            box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3); /* 加強陰影 */
-            margin: 0 auto 40px; /* 置中並保持底部間距 */
-            max-width: 800px; /* 限制最大寬度，防止圖片在大螢幕模糊 */
+            box-shadow: 0 15px 40px -10px rgba(0, 0, 0, 0.3);
+            margin: 0 auto 40px;
+            max-width: 800px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -119,7 +119,6 @@
             background: linear-gradient(135deg, #0f172a 0%, #334155 100%);
         }
         
-        /* 增加黑色漸層遮罩，讓文字更清楚 */
         .hero-section::before {
             content: '';
             position: absolute;
@@ -131,13 +130,12 @@
         .hero-bg-img {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             object-fit: cover; z-index: 0;
-            /* 移除 brightness 濾鏡，改用遮罩，圖片會更銳利 */
         }
         
         .hero-content { 
             position: relative; 
             z-index: 2; 
-            text-shadow: 0 4px 20px rgba(0,0,0,0.9); /* 加強文字陰影 */
+            text-shadow: 0 4px 20px rgba(0,0,0,0.9);
             padding: 20px;
         }
 
@@ -147,8 +145,7 @@
             font-size: 2.8rem;
             margin: 0;
             letter-spacing: -1px;
-            color: #ffffff; /* 改回純白，確保陰影有效 */
-            /* 移除背景裁切，提升清晰度 */
+            color: #ffffff;
         }
 
         .sub-title {
@@ -203,12 +200,11 @@
         }
         .day-card:hover { transform: translateY(-5px); }
 
-        /* Card Image Banner */
         .card-banner {
             height: 160px;
             position: relative;
             overflow: hidden;
-            background: #e2e8f0; /* Fallback color */
+            background: #e2e8f0;
         }
         .card-banner img {
             width: 100%; height: 100%; object-fit: cover;
@@ -249,7 +245,6 @@
         
         .card-body { padding: 10px 24px 30px; }
 
-        /* Timeline */
         .timeline { position: relative; padding-left: 12px; margin-top: 10px; }
         .timeline::before { content: ''; position: absolute; left: 8px; top: 15px; bottom: 15px; width: 2px; background: #f1f5f9; border-radius: 2px; }
         .event-item { position: relative; padding-left: 35px; padding-bottom: 35px; }
@@ -267,7 +262,6 @@
         .event-content h4 { margin: 2px 0 6px; font-size: 1.05rem; font-weight: 700; color: var(--primary); }
         .event-content p { margin: 0; font-size: 0.95rem; color: #64748b; line-height: 1.6; }
 
-        /* Boarding Pass */
         .boarding-pass {
             background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 16px; padding: 18px; margin-bottom: 25px;
             position: relative; overflow: hidden;
@@ -285,7 +279,6 @@
         }
         .bp-link:hover { color: #0369a1; }
         
-        /* Voucher Box Styles */
         .voucher-box {
             background: #fffbeb; border: 1px dashed #fbbf24; border-radius: 16px; padding: 20px; margin-bottom: 25px; position: relative;
         }
@@ -304,7 +297,6 @@
         }
         .btn-download:hover { background: #fff7ed; transform: translateY(-1px); }
 
-        /* Hotel Card */
         .hotel-card {
             margin-top: 15px; background: #f8fafc; border-radius: 16px; padding: 16px;
             display: flex; align-items: center; justify-content: space-between; border: 1px solid #f1f5f9;
@@ -409,48 +401,53 @@
                 <div class="card-header">
                     <div class="day-badge">
                         <span class="day-num">DAY 01</span>
-                        <span class="date-str">1/16 (Fri) • 東京集合</span>
+                        <span class="date-str">1/16 (Fri) • 東京 (抵達日)</span>
                     </div>
                     <div class="weather-pill" id="weather-d1"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="boarding-pass">
                         <div class="bp-main">
-                            <div><div class="bp-time">10:20</div><span class="bp-code">HKG</span></div>
-                            <i class="fas fa-plane" style="color:#cbd5e1; transform:rotate(90deg)"></i>
-                            <div style="text-align:right"><div class="bp-time">15:35</div><span class="bp-code">NRT</span></div>
-                        </div>
-                        <div style="display:flex; justify-content:space-between; align-items:flex-end;">
-                            <div style="font-size:0.8rem; color:#94a3b8; margin-top:5px;">CX6322 • 冠廷</div>
-                            <a href="https://www.flightradar24.com/data/flights/cx6322" target="_blank" class="bp-link">查看動態</a>
-                        </div>
-                    </div>
-                    <div class="boarding-pass">
-                        <div class="bp-main">
-                            <div><div class="bp-time">12:40</div><span class="bp-code">TPE</span></div>
+                            <div><div class="bp-time">12:35</div><span class="bp-code">TPE</span></div>
                             <i class="fas fa-plane" style="color:#cbd5e1; transform:rotate(90deg)"></i>
                             <div style="text-align:right"><div class="bp-time">16:40</div><span class="bp-code">NRT</span></div>
                         </div>
                         <div style="display:flex; justify-content:space-between; align-items:flex-end;">
-                            <div style="font-size:0.8rem; color:#94a3b8; margin-top:5px;">CI104 • 浥耘</div>
+                            <div style="font-size:0.8rem; color:#94a3b8; margin-top:5px;">CI104 • 冠廷</div>
                             <a href="https://www.flightradar24.com/data/flights/ci104" target="_blank" class="bp-link">查看動態</a>
                         </div>
                     </div>
                     <div class="timeline">
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">17:30</span>
+                            <span class="event-time">16:40</span>
                             <div class="event-content">
-                                <h4>前往市區</h4>
-                                <p>搭乘 Skyliner / N'EX。</p>
+                                <h4>抵達東京成田機場</h4>
+                                <p>入境、提領行李約 1 小時。</p>
                             </div>
                         </div>
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">19:30</span>
+                            <span class="event-time">17:40</span>
                             <div class="event-content">
-                                <h4>歡迎晚餐</h4>
-                                <p>東日本橋居酒屋，慶祝旅程開始。</p>
+                                <h4>Skyliner 前往飯店</h4>
+                                <p>京成 Skyliner + 地鐵前往飯店 (約1小時)，入住放行李。</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">18:30</span>
+                            <div class="event-content">
+                                <h4>秋葉原逛街 / 晚餐</h4>
+                                <p>搭乘 JR 山手線。逛電器、動漫周邊，晚餐可順便解決。</p>
+                            </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">21:00</span>
+                            <div class="event-content">
+                                <h4>回飯店休息</h4>
+                                <p>步行或搭地鐵回飯店。</p>
                             </div>
                         </div>
                     </div>
@@ -465,7 +462,7 @@
             </div>
 
             <!-- Day 2 -->
-            <div class="day-card" data-theme="hokkaido">
+            <div class="day-card" data-theme="tokyo">
                 <div class="card-banner">
                     <img src="sapporo_city.jpg" alt="Sapporo" onerror="this.style.display='none'">
                     <div class="card-banner-overlay"></div>
@@ -473,12 +470,40 @@
                 <div class="card-header">
                     <div class="day-badge">
                         <span class="day-num">DAY 02</span>
-                        <span class="date-str">1/17 (Sat) • 飛往北國</span>
+                        <span class="date-str">1/17 (Sat) • 東京 → 札幌</span>
                     </div>
                     <div class="weather-pill" id="weather-d2"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
-                    <div class="boarding-pass">
+                    <div class="timeline">
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">07:00</span>
+                            <div class="event-content"><h4>早餐 + 準備</h4><p>飯店內用餐，整理行李穿暖衣物。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">08:00</span>
+                            <div class="event-content"><h4>淺草寺 & 仲見世街</h4><p>地鐵銀座線。參拜、逛街、拍照 (停留1.5hr)。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">09:30</span>
+                            <div class="event-content"><h4>上野公園 / 阿美橫町</h4><p>地鐵或步行。逛街、拍照 (停留1.5hr)。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">11:00</span>
+                            <div class="event-content"><h4>午餐</h4><p>上野附近餐廳用餐。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">12:30</span>
+                            <div class="event-content"><h4>前往羽田機場</h4><p>地鐵/機場巴士。請留足時間轉機 (至少2hr前抵達)。</p></div>
+                        </div>
+                    </div>
+                    
+                    <div class="boarding-pass" style="margin-top: 20px;">
                         <div class="bp-main">
                             <div><div class="bp-time">16:00</div><span class="bp-code">HND</span></div>
                             <i class="fas fa-plane" style="color:#cbd5e1; transform:rotate(90deg)"></i>
@@ -489,16 +514,12 @@
                             <a href="https://www.flightradar24.com/data/flights/nh71" target="_blank" class="bp-link">查看動態</a>
                         </div>
                     </div>
+                    
                     <div class="timeline">
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">19:30</span>
-                            <div class="event-content"><h4>札幌湯咖哩</h4><p>晚餐推薦 Suage+ 或 Garaku。</p></div>
-                        </div>
-                        <div class="event-item">
-                            <div class="event-dot"></div>
-                            <span class="event-time">21:00</span>
-                            <div class="event-content"><h4>狸小路商店街</h4><p>藥妝店補貨，感受北國夜生活。</p></div>
+                            <span class="event-time">18:30</span>
+                            <div class="event-content"><h4>抵達飯店</h4><p>搭 JR/巴士到 Comfort Hotel 札幌薄野。晚上自由活動。</p></div>
                         </div>
                     </div>
                     <div class="hotel-card">
@@ -520,29 +541,59 @@
                 <div class="card-header">
                     <div class="day-badge">
                         <span class="day-num">DAY 03</span>
-                        <span class="date-str">1/18 (Sun) • 登別小樽</span>
+                        <span class="date-str">1/18 (Sun) • 登別 + 洞爺 + 小樽</span>
                     </div>
                     <div class="weather-pill" id="weather-d3"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="voucher-box">
                         <div class="voucher-title"><i class="fas fa-ticket-alt"></i> Pelago 一日遊憑證</div>
-                        <div class="voucher-meta"><i class="fas fa-clock"></i> 07:30 集合 @ Oriental Hotel</div>
+                        <div class="voucher-meta"><i class="fas fa-clock"></i> 07:30 集合 @ Oriental Hotel Sapporo (黃色 Gogoday 旗)</div>
                         <div class="timeline">
                             <div class="event-item">
                                 <div class="event-dot"></div>
-                                <span class="event-time">10:00</span>
-                                <div class="event-content"><h4>登別地獄谷</h4><p>欣賞硫磺谷雪景。</p></div>
+                                <span class="event-time">07:40</span>
+                                <div class="event-content"><h4>登別地獄谷</h4><p>停留 30 分鐘，火山地熱景觀。</p></div>
                             </div>
                             <div class="event-item">
                                 <div class="event-dot"></div>
-                                <span class="event-time">13:00</span>
-                                <div class="event-content"><h4>洞爺湖 & 昭和新山</h4><p>午餐自理 (溫泉街)。</p></div>
+                                <span class="event-time">08:40</span>
+                                <div class="event-content"><h4>大湯沼 (Oyunuma Pond)</h4><p>停留 30 分鐘，拍照散步。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">09:30</span>
+                                <div class="event-content"><h4>洞爺湖 (Lake Toya)</h4><p>停留 2 小時，自由拍照、午餐。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">11:40</span>
+                                <div class="event-content"><h4>昭和新山</h4><p>停留 30 分鐘拍照。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">12:40</span>
+                                <div class="event-content"><h4>熊牧場 (可選)</h4><p>停留 30 分鐘，餵熊 (門票自理)。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">13:20</span>
+                                <div class="event-content"><h4>洞爺湖展望台</h4><p>停留 20 分鐘，欣賞湖景。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">14:30</span>
+                                <div class="event-content"><h4>小樽運河</h4><p>停留 45 分鐘，浪漫運河拍照。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">15:20</span>
+                                <div class="event-content"><h4>北一硝子館 / 音樂盒堂</h4><p>逛玻璃工坊與音樂盒堂。</p></div>
                             </div>
                             <div class="event-item">
                                 <div class="event-dot"></div>
                                 <span class="event-time">16:30</span>
-                                <div class="event-content"><h4>小樽運河</h4><p>Blue Hour 藍調時刻拍照。</p></div>
+                                <div class="event-content"><h4>返回札幌</h4><p>預計 18:30 抵達飯店休息。</p></div>
                             </div>
                         </div>
                         <a href="voucher_pelago.pdf" target="_blank" class="btn-download"><i class="fas fa-file-pdf"></i> 下載憑證</a>
@@ -566,7 +617,7 @@
                 <div class="card-header">
                     <div class="day-badge">
                         <span class="day-num">DAY 04</span>
-                        <span class="date-str">1/19 (Mon) • 札幌探索</span>
+                        <span class="date-str">1/19 (Mon) • 札幌市區一日遊</span>
                     </div>
                     <div class="weather-pill" id="weather-d4"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
@@ -574,30 +625,50 @@
                     <div class="timeline">
                         <div class="event-item">
                             <div class="event-dot"></div>
+                            <span class="event-time">08:00</span>
+                            <div class="event-content"><h4>早餐 + 準備</h4><p>飯店內用餐，整理行李。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
                             <span class="event-time">09:00</span>
-                            <div class="event-content"><h4>北海道神宮</h4><p>雪中參拜。</p></div>
+                            <div class="event-content"><h4>北海道神宮</h4><p>地鐵/計程車。慢慢拍照、參拜、欣賞雪景。</p></div>
                         </div>
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">11:30</span>
-                            <div class="event-content"><h4>二條市場</h4><p>午餐：豪華海鮮丼。</p></div>
+                            <span class="event-time">10:35</span>
+                            <div class="event-content"><h4>二條市場</h4><p>午餐、挑選海鮮、買伴手禮。</p></div>
                         </div>
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">14:00</span>
-                            <div class="event-content"><h4>大通公園 & 電視塔</h4><p>散步拍照。</p></div>
+                            <span class="event-time">12:40</span>
+                            <div class="event-content"><h4>白色戀人公園</h4><p>地鐵/計程車。參觀工廠、DIY體驗。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">15:00</span>
+                            <div class="event-content"><h4>大通公園 + 電視塔</h4><p>散步拍照，欣賞雪景。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">16:30</span>
+                            <div class="event-content"><h4>札幌站周邊 / 薄野</h4><p>購買限定零食伴手禮，散步至晚餐地點。</p></div>
                         </div>
                         <div class="event-item">
                             <div class="event-dot"></div>
                             <span class="event-time">19:00</span>
                             <div class="event-content">
                                 <h4>Den Japanese Buffet</h4>
-                                <p>Crab, Shabu-Shabu & Yakiniku in Hokkaido</p>
+                                <p>螃蟹、火鍋、燒肉無限享用。建議提前15分鐘到。</p>
                                 <div style="display:flex; gap:10px; margin-top:8px;">
                                     <a href="voucher_buffet.pdf" target="_blank" style="display:inline-flex; align-items:center; gap:5px; padding:6px 12px; background:#fffbeb; color:#d97706; border:1px solid #fcd34d; border-radius:8px; font-size:0.8rem; font-weight:700; text-decoration:none;"><i class="fas fa-file-pdf"></i> 憑證</a>
                                     <a href="https://www.google.com/maps/search/?api=1&query=Den+Japanese+Buffet+Sapporo" target="_blank" style="display:inline-flex; align-items:center; gap:5px; padding:6px 12px; background:#f0f9ff; color:#0ea5e9; border:1px solid #bae6fd; border-radius:8px; font-size:0.8rem; font-weight:700; text-decoration:none;"><i class="fas fa-location-arrow"></i> 導航</a>
                                 </div>
                             </div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">21:15</span>
+                            <div class="event-content"><h4>回飯店休息</h4><p>步行回飯店。</p></div>
                         </div>
                     </div>
                     <div class="hotel-card">
@@ -619,24 +690,44 @@
                 <div class="card-header">
                     <div class="day-badge">
                         <span class="day-num">DAY 05</span>
-                        <span class="date-str">1/20 (Tue) • 破冰遠征</span>
+                        <span class="date-str">1/20 (Tue) • 破冰船 Day 1</span>
                     </div>
                     <div class="weather-pill" id="weather-d5"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
                     <div class="voucher-box">
                         <div class="voucher-title"><i class="fas fa-ticket-alt"></i> KKday 破冰船二日遊</div>
-                        <div class="voucher-meta"><i class="fas fa-suitcase"></i> 07:40 札幌北口集合 (行李限一件)</div>
+                        <div class="voucher-meta"><i class="fas fa-suitcase"></i> 07:40 集合 @ 札幌北口團體巴士處</div>
                         <div class="timeline">
                             <div class="event-item">
                                 <div class="event-dot"></div>
-                                <span class="event-time">10:30</span>
-                                <div class="event-content"><h4>旭山動物園</h4><p>冬季限定企鵝散步。</p></div>
+                                <span class="event-time">08:00</span>
+                                <div class="event-content"><h4>出發</h4><p>搭乘巴士前往行程。</p></div>
                             </div>
                             <div class="event-item">
                                 <div class="event-dot"></div>
-                                <span class="event-time">19:30</span>
-                                <div class="event-content"><h4>層雲峽冰瀑祭</h4><p>夜間點燈，夢幻七彩冰雕。</p></div>
+                                <span class="event-time">10:00</span>
+                                <div class="event-content"><h4>旭山動物園</h4><p>停留 100 分鐘，觀賞北極熊、企鵝散步。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">12:00</span>
+                                <div class="event-content"><h4>午餐</h4><p>焗烤螃蟹海鮮陶板燒御膳。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">13:00</span>
+                                <div class="event-content"><h4>雪上活動 / 購物</h4><p>體驗雪盆或選購特產。C/D 方案可玩雪上摩托。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">14:30</span>
+                                <div class="event-content"><h4>層雲峽冰瀑祭</h4><p>參觀夜間冰雕藝術 (視開放狀況)。</p></div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-dot"></div>
+                                <span class="event-time">18:00</span>
+                                <div class="event-content"><h4>入住層雲峽溫泉飯店</h4><p>晚餐享用飯店豪華自助餐或日式宴會餐。</p></div>
                             </div>
                         </div>
                         <a href="voucher_kkday.pdf" target="_blank" class="btn-download"><i class="fas fa-file-pdf"></i> 下載憑證</a>
@@ -644,9 +735,9 @@
                     <div class="hotel-card">
                         <div class="hotel-left">
                             <div class="hotel-icon"><i class="fas fa-bed"></i></div>
-                            <span class="hotel-name">層雲峽觀光飯店</span>
+                            <span class="hotel-name">層雲峽周邊溫泉飯店</span>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Sounkyo+Kanko+Hotel" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Sounkyo+Onsen" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
                     </div>
                 </div>
             </div>
@@ -660,7 +751,7 @@
                 <div class="card-header">
                     <div class="day-badge">
                         <span class="day-num">DAY 06</span>
-                        <span class="date-str">1/21 (Wed) • 破冰遠征 II</span>
+                        <span class="date-str">1/21 (Wed) • 破冰船 Day 2</span>
                     </div>
                     <div class="weather-pill" id="weather-d6"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
@@ -668,18 +759,38 @@
                     <div class="timeline">
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">09:00</span>
-                            <div class="event-content"><h4>銀河流星瀑布</h4><p>欣賞結冰的壯觀瀑布。</p></div>
-                        </div>
-                        <div class="event-item">
-                            <div class="event-dot" style="border-color:#f59e0b"></div>
-                            <span class="event-time" style="background:#fffbeb; color:#d97706">12:00</span>
-                            <div class="event-content"><h4>紋別破冰船</h4><p>搭乘 GARINKO III 鑽頭碎冰。</p></div>
+                            <span class="event-time">早餐</span>
+                            <div class="event-content"><h4>飯店早餐</h4><p>自助早餐。</p></div>
                         </div>
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">15:30</span>
-                            <div class="event-content"><h4>出塚水產</h4><p>品嘗現炸魚板。</p></div>
+                            <span class="event-time">08:00</span>
+                            <div class="event-content"><h4>出發</h4><p>前往銀河流星瀑布。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">08:30</span>
+                            <div class="event-content"><h4>銀河流星瀑布</h4><p>冰雪景觀拍照。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot" style="border-color:#f59e0b"></div>
+                            <span class="event-time" style="background:#fffbeb; color:#d97706">09:30</span>
+                            <div class="event-content"><h4>紋別破冰船 GARINKO III</h4><p>流冰破冰船體驗。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">12:30</span>
+                            <div class="event-content"><h4>午餐</h4><p>豪華蟹腳干貝端爐燒套餐。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">13:30</span>
+                            <div class="event-content"><h4>旭川男山酒造</h4><p>品酒、購買紀念品。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">14:30</span>
+                            <div class="event-content"><h4>返回札幌</h4><p>預計 18:00-19:00 抵達 JR 札幌車站。</p></div>
                         </div>
                     </div>
                     <div class="hotel-card">
@@ -701,11 +812,39 @@
                 <div class="card-header">
                     <div class="day-badge">
                         <span class="day-num">DAY 07</span>
-                        <span class="date-str">1/22 (Thu) • 轉戰關西</span>
+                        <span class="date-str">1/22 (Thu) • 札幌 → 大阪</span>
                     </div>
                     <div class="weather-pill" id="weather-d7"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
                 <div class="card-body">
+                    <div class="timeline">
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">07:30</span>
+                            <div class="event-content"><h4>早餐 / 退房</h4><p>飯店內早餐，行李可先寄放。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">08:30</span>
+                            <div class="event-content"><h4>札幌時計台</h4><p>參觀拍照 (停留約1小時)。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">09:40</span>
+                            <div class="event-content"><h4>狸小路商店街 + 午餐</h4><p>購物、午餐 (章魚燒、串燒、拉麵)。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">15:00</span>
+                            <div class="event-content"><h4>回飯店取行李</h4><p>準備前往機場。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">15:30</span>
+                            <div class="event-content"><h4>前往新千歲機場</h4><p>搭乘 JR 快速 Airport 號。</p></div>
+                        </div>
+                    </div>
+                    
                     <div class="boarding-pass">
                         <div class="bp-main">
                             <div><div class="bp-time">19:20</div><span class="bp-code">CTS</span></div>
@@ -717,24 +856,20 @@
                             <a href="https://www.flightradar24.com/data/flights/nh1718" target="_blank" class="bp-link">查看動態</a>
                         </div>
                     </div>
+                    
                     <div class="timeline">
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">16:30</span>
-                            <div class="event-content"><h4>新千歲機場</h4><p>拉麵道場、哆啦A夢空中樂園。</p></div>
-                        </div>
-                        <div class="event-item">
-                            <div class="event-dot"></div>
                             <span class="event-time">22:30</span>
-                            <div class="event-content"><h4>大阪市區</h4><p>前往飯店休息。</p></div>
+                            <div class="event-content"><h4>前往飯店</h4><p>抵達大阪關西機場後，前往飯店休息。</p></div>
                         </div>
                     </div>
                     <div class="hotel-card">
                         <div class="hotel-left">
                             <div class="hotel-icon"><i class="fas fa-bed"></i></div>
-                            <span class="hotel-name">Osaka Hinode Hotel</span>
+                            <span class="hotel-name">温泉大阪逸之彩酒店日本橋</span>
                         </div>
-                        <a href="https://www.google.com/maps/search/?api=1&query=Osaka+Hinode+Hotel" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Osaka+Hinomaru+Hotel+Nihonbashi" target="_blank" class="hotel-map-btn"><i class="fas fa-location-arrow"></i></a>
                     </div>
                 </div>
             </div>
@@ -748,7 +883,7 @@
                 <div class="card-header">
                     <div class="day-badge">
                         <span class="day-num">DAY 08</span>
-                        <span class="date-str">1/23 (Fri) • 滿載而歸</span>
+                        <span class="date-str">1/23 (Fri) • 大阪 → 台北</span>
                     </div>
                     <div class="weather-pill" id="weather-d8"><i class="fas fa-spinner fa-spin"></i> 載入中...</div>
                 </div>
@@ -756,18 +891,38 @@
                     <div class="timeline">
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">10:00</span>
-                            <div class="event-content"><h4>黑門市場</h4><p>享用早午餐，生鮮水果。</p></div>
+                            <span class="event-time">07:30</span>
+                            <div class="event-content"><h4>早餐 / 退房</h4><p>飯店內早餐，行李寄放。</p></div>
                         </div>
                         <div class="event-item">
                             <div class="event-dot"></div>
-                            <span class="event-time">12:30</span>
-                            <div class="event-content"><h4>臨空城 Outlet</h4><p>Rinku Premium Outlets 最後衝刺。</p></div>
+                            <span class="event-time">08:30</span>
+                            <div class="event-content"><h4>大鳥神社 (Ootori Jinja)</h4><p>地鐵或計程車。參拜、拍照。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">10:00</span>
+                            <div class="event-content"><h4>道頓堀商店街 + 午餐</h4><p>慢慢逛街，午餐享用大阪美食。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">15:00</span>
+                            <div class="event-content"><h4>前往機場</h4><p>前往天王寺站搭乘 Haruka。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">15:33</span>
+                            <div class="event-content"><h4>搭乘 Haruka 特急</h4><p>約 50 分鐘車程，16:20 抵達機場。</p></div>
+                        </div>
+                        <div class="event-item">
+                            <div class="event-dot"></div>
+                            <span class="event-time">16:30</span>
+                            <div class="event-content"><h4>機場報到</h4><p>辦理登機與最後採買。</p></div>
                         </div>
                     </div>
                     <div class="boarding-pass">
                         <div class="bp-main">
-                            <div><div class="bp-time">19:05</div><span class="bp-code">KIX</span></div>
+                            <div><div class="bp-time">19:00</div><span class="bp-code">KIX</span></div>
                             <i class="fas fa-plane" style="color:#cbd5e1; transform:rotate(90deg)"></i>
                             <div style="text-align:right"><div class="bp-time">21:25</div><span class="bp-code">TPE</span></div>
                         </div>
@@ -924,9 +1079,9 @@
             { id: 'weather-d2', lat: 43.0618, lon: 141.3545, date: '2026-01-17', fallback: {min:-6, max:-2, code:71} }, // Sapporo
             { id: 'weather-d3', lat: 43.0618, lon: 141.3545, date: '2026-01-18', fallback: {min:-7, max:-1, code:71} }, // Sapporo
             { id: 'weather-d4', lat: 43.0618, lon: 141.3545, date: '2026-01-19', fallback: {min:-5, max:-2, code:71} }, // Sapporo
-            { id: 'weather-d5', lat: 43.0618, lon: 141.3545, date: '2026-01-20', fallback: {min:-8, max:-3, code:71} }, // Sapporo
-            { id: 'weather-d6', lat: 44.3566, lon: 143.3533, date: '2026-01-21', fallback: {min:-10, max:-4, code:71} }, // Monbetsu (Updated)
-            { id: 'weather-d7', lat: 34.6937, lon: 135.5023, date: '2026-01-22', fallback: {min:5, max:11, code:1} }, // Osaka
+            { id: 'weather-d5', lat: 43.7706, lon: 142.3649, date: '2026-01-20', fallback: {min:-8, max:-3, code:71} }, // Asahikawa (Day 5 tour start)
+            { id: 'weather-d6', lat: 44.3566, lon: 143.3533, date: '2026-01-21', fallback: {min:-10, max:-4, code:71} }, // Monbetsu
+            { id: 'weather-d7', lat: 43.0618, lon: 141.3545, date: '2026-01-22', fallback: {min:-6, max:-2, code:71} }, // Sapporo (Most day here)
             { id: 'weather-d8', lat: 34.6937, lon: 135.5023, date: '2026-01-23', fallback: {min:4, max:12, code:3} }  // Osaka
         ];
 
